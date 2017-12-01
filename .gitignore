@@ -4,6 +4,8 @@
 
 # Private Settings
 config/settings.ini
+config/settings_local.ini
+config/settings_production.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
