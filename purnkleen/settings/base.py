@@ -134,3 +134,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Don't do this in Production. Use a CDN.
+STATICFILES_DIRS = [
+    # Will not be served, long-term storage.
+    os.path.join(BASE_DIR, "static-storage"),
+]
+# Will be served.
+STATIC_ROOT = os.path.join(BASE_DIR, "static-serve")
