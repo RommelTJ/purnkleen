@@ -1,0 +1,139 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Giveaway{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Giveaway</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Giveaway</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <!-- Featured SEO Box -->
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h2 class="section-title text-uppercase">Answer our Diplomatic Question of the Month</h2>
+                <p class="section-sub">
+                    As members of
+                    <a href="https://robertsspaceindustries.com/orgs/DIPLOMACY" target="_blank">Interstellar Diplomacy</a>
+                    we are sponsoring the Diplomatic Question of the Month for the month of April. We are offering a
+                    <strong>P-72 Archimedes with LTI</strong> and <strong>two $5 subscriber flair items or skins</strong>.
+                    Here's how to participate:
+                </p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-5 col-md-offset-1 grey-text mb-50 mt-sm-30 ">
+                    <h1>1) Join Interstellar Diplomacy.</h1>
+                    <p>
+                        To learn more about Interstellar Diplomacy and instructions on how to join, please click
+                        <a href="https://robertsspaceindustries.com/orgs/DIPLOMACY" target="_blank">here</a>.
+                    </p>
+
+                    <h1>2) Participate in the discussion.</h1>
+                    <p>
+                        <strong>From April 22nd until April 29th</strong>, our question will be posted on the Interstellar Diplomacy
+                        <a href="https://robertsspaceindustries.com/spectrum/community/DIPLOMACY">spectrum</a> and
+                        <a href="https://discord.gg/EDhG6zt">Discord</a>. All you have to do is participate in the
+                        discussion and you will gain an entry into the raffle for the prizes. The 3 winners will be
+                        announced in those channels after the discussion is over. <br/>
+                        <strong>The Pur'N'Kleen Question:</strong> <br/>
+                        <blockquote>
+                            <p>
+                                There is a player-run space station that is governed by an alliance of multiple organizations.
+                                Resources will need to be brought to this space station such as weapons, ammunition, fuel, food,
+                                clothing, and so on. How do you distribute contracts for these resources in a fair manner while
+                                also preventing internal conflicts?
+                            </p>
+                        </blockquote>
+                    </p>
+
+
+                </div><!-- /.col-md-6 -->
+
+                <div class="col-md-6">
+
+                    <img src="{% static 'img/Archimedes.jpg' %}" alt="" class="img-responsive"> <br/>
+
+                    <h1>3) Become a Pur'N'Kleen affiliate.</h1>
+                    <p>
+                        This is not necessary to win but if you are already here, why not join Pur'N'Kleen as an affiliate?
+                        Not only do you get to hang out with some very cool people, but we'll also alert you of future
+                        giveaways. For steps on how to join Pur'N'Kleen, please visit our
+                        <a href="{% url 'join' %}">Join Us</a> page.
+                    </p>
+
+                    <a href="https://discord.gg/Q9WHD3J" class="btn btn-lg purnkleen-yellow-btn text-capitalize waves-effect waves-light">Questions</a>
+                </div><!-- /.col-md-6 -->
+
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+    </section>
+    <!-- Featured Carousel End -->
+
+
+
+{#    <div class="container purnkleen-marketing">#}
+{##}
+{#        <div class="row featurette">#}
+{#            <div class="col-md-12">#}
+{#                <h2 class="featurette-heading">Answer our Diplomatic Question of the Month</h2>#}
+{#                <p class="lead">#}
+{#                    As members of <a href="https://robertsspaceindustries.com/orgs/DIPLOMACY" target="_blank">#}
+{#                    Interstellar Diplomacy</a> we are sponsoring the Diplomatic Question of the Month for the month of#}
+{#                    April. We are offering a <strong>P-72 Archimedes with LTI</strong>! Here's how to participate:#}
+{#                </p>#}
+{##}
+{#                <h3>1) Be a member of Interstellar Diplomacy.</h3>#}
+{#                <p class="lead">#}
+{#                    To learn more about Interstellar Diplomacy and instructions on how to join, please click#}
+{#                    <a href="https://robertsspaceindustries.com/orgs/DIPLOMACY" target="_blank">here</a>.#}
+{#                </p>#}
+{##}
+{#                <h3>2) Participate in the discussion.</h3>#}
+{#                <p class="lead">#}
+{#                    On April 15, our question will be posted on the Interstellar Diplomacy#}
+{#                    <a href="https://robertsspaceindustries.com/spectrum/community/DIPLOMACY">spectrum</a> and#}
+{#                    <a href="https://discord.gg/EDhG6zt">Discord</a>. All you have to do is participate in the#}
+{#                    discussion and you will gain an entry into the raffle for the prize. Winners will be announced in#}
+{#                    those channels after the discussion is over.#}
+{#                    <br/>#}
+{#                    <strong>The Pur'N'Kleen Question:</strong> <br/>#}
+{#                    <span style="font-style:italic;">#}
+{#                        There is a player-run space station that is governed by an alliance of multiple organizations.#}
+{#                        Resources will need to be brought to this space station such as weapons, ammunition, fuel, food,#}
+{#                        clothing, and so on. How do you distribute contracts for these resources in a fair manner while#}
+{#                        also preventing internal conflicts?#}
+{#                    </span>#}
+{#                </p>#}
+{##}
+{#                <h3>3) Consider becoming a Pur'N'Kleen affiliate.</h3>#}
+{#                <p class="lead">#}
+{#                    This is not necessary to win but if you are already here, why not join Pur'N'Kleen as an affiliate?#}
+{#                    Not only do you get to hang out with some very cool people, but we'll also alert you of future#}
+{#                    giveaways. For steps on how to join Pur'N'Kleen, please visit our#}
+{#                    <a href="{% url 'join' %}">Join Us</a> page.#}
+{#                </p>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+
+{% endblock %}

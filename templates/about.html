@@ -1,0 +1,77 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}About Pur'N'Kleen{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">About Us</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">About Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">About Us</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Who are you?</h1>
+                    <p class="lead">
+                        The Pur'N'Kleen [PNK] Organization is a Star Citizen resources and trading worker cooperative organization.
+                        The name is an homage to <a href="https://en.wikipedia.org/wiki/The_Expanse_(novel_series)" target="_blank">The Expanse
+                        by James S.A. Corey</a>.
+                    </p>
+
+                    <h1>Our business is your business</h1>
+                    <p class="lead">
+                        Pur'N'Kleen is in the business of providing Star Citizen organizations with a competitive edge by
+                        solving their maintenance and supply chain needs through approaches based on deep industry knowledge.
+                        By combining our warehouse, distribution, transportation, and advanced knowledge, we give Star Citizen
+                        organizations end-to-end visibility into their operations while reducing their costs.
+                    </p>
+
+                    <h1>Our Solutions and Services</h1>
+                    <p class="lead">
+                        We work with <strong>Combat, Mercantile, Exploration, and Racing Organizations</strong> and provide them
+                        with a variety of logistical and support services so they can focus on their craft.
+                    </p>
+                    <dl class="dl-horizontal lead">
+                        <dt><a href="{% url 'fuel-services' %}">Fuel Services</a></dt>
+                        <dd>Our line of fuel products and services are designed to give pros the performance they need to get their jobs done right. </dd>
+                        <dt><a href="{% url 'maintenance-and-repair' %}">Maintenance and Repair</a></dt>
+                        <dd>Let us take care of the regular maintenance for your ships. Our professional mechanics can fix any problem. </dd>
+                        <dt><a href="{% url 'transportation' %}">Transportation</a></dt>
+                        <dd>Fast moving and forward thinking crews that can get any job done.</dd>
+                    </dl>
+                    <p class="lead">
+                        In addition to the above, we also offer the following solutions to the community free of charge:
+                    </p>
+                    <dl class="dl-horizontal lead">
+                        <dt><a href="{% url 'mission-planner' %}">Mission Planner</a></dt>
+                        <dd>A tool to help you plan missions for your org. Coming soon.</dd>
+                        <dt><a href="{% url 'fleet-view' %}">Fleet View</a></dt>
+                        <dd>A tool to help you manage your fleet. Coming soon.</dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

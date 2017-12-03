@@ -1,0 +1,79 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Values{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Our Values</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Our Values</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Fundamental Values of Pur'N'Kleen</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <p class="lead">
+                        <strong>Voluntary and open membership</strong><br/>
+                        Pur’N’Kleen is a voluntary organization, open to all persons able to use its services and willing
+                        to accept the responsibilities of membership, without gender, social, racial, political, or
+                        religious discrimination.
+                    </p>
+
+                    <p class="lead">
+                        <strong>Democratic member control</strong><br/>
+                        Pur’N’Kleen is a democratic organization controlled by its members, who actively participate in
+                        setting policies and decision making. In Pur’N’Kleen, members have a right and obligation to
+                        participate in the decision making that affects them.
+                    </p>
+
+                    <p class="lead">
+                        <strong>Member economic participation</strong><br/>
+                        Members contribute equitably to, and democratically control, the capital of Pur’N’Kleen. All members
+                        gain or lose together. No single member benefits at the expense of other members.
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p class="lead">
+                        <strong>Autonomy and independence</strong><br/>
+                        Pur’N’Kleen is an autonomous self-help organization that is controlled by its members.
+                    </p>
+
+                    <p class="lead">
+                        <strong>Education, training, and information</strong><br/>
+                        Pur’N’Kleen will keep its members informed and provide education and training for its members,
+                        elected representatives, managers, and employees so they can contribute effectively to the
+                        development of Pur’N’Kleen.
+                    </p>
+
+                    <p class="lead">
+                        <b>Concern for community</b><br/>
+                        While focusing on member’s needs, Pur’N’Kleen works for the sustainable development of their
+                        communities through policies accepted by its members.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

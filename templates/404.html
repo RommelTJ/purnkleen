@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}404{% endblock %}
+
+{% block container %}
+
+    <section class="fullscreen-banner valign-wrapper error-wrapper-alt">
+        <div class="valign-cell">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="mb-30">404</h1>
+                    <span class="error-sub">OOPS! PAGE NOT FOUND</span>
+
+                    <p>Sorry, but we can’t seem to find the page you are looking for.</p>
+
+                    <a class="btn btn-lg yellow waves-effect waves-light" href="{% url 'index' %}">Take Me Home</a>
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.valign-cell -->
+    </section>
+
+{% endblock %}

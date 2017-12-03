@@ -1,0 +1,52 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Maintenance and Repair Services{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Maintenance and Repair Services</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Maintenance and Repair Services</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Pur'N'Kleen Maintenance and Repair Services</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Coming with Star Citizen 3.2</h1>
+                    <p class="lead">
+                        Pur'N'Kleen knows that you just want to fly and not worry about the regular maintenance of your
+                        ships. With the Pur'N'Kleen maintenance and repair service, we can keep track of your ships and
+                        gear and remind you when they're due for service. Our expert mechanics can fix any problem.
+                    </p>
+
+                    <p class="lead">
+                        Pur'N'Kleen also offers logistics support for your Organization, ranging from single
+                        emergency repairs to yearly service contracts. Please don't hesitate to
+                        <a href="https://discord.gg/Q9WHD3J">contact us</a> with your maintenance and repair needs.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

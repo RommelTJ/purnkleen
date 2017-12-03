@@ -1,0 +1,74 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Benefits{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Our Benefits</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Our Benefits</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Pur'N'Kleen Benefits</h1>
+            </div>
+
+            <div class="row featurette">
+                <div class="col-md-5 col-md-offset-1">
+
+                    <p class="lead">
+                        <strong>Employment and the ability to generate income</strong><br>
+                        Pur’N’Kleen gives members an opportunity to become economically independent in a cooperative way.
+                    </p>
+
+                    <p class="lead">
+                        <strong>Control over the way the work is organized, performed, and managed</strong><br>
+                        The Pur'N'Kleen worker co-op structure provides an opportunity to balance member’s needs and
+                        concerns with the needs for profits and efficiency. Pur’N’Kleen also emphasizes the training and
+                        development of members.
+                    </p>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <p class="lead">
+                        <strong>Employment security</strong><br>
+                        Income is not the only purpose of Pur’N’Kleen. As long as the enterprise is economically viable,
+                        Pur’N’Kleen will be managed and expected to generate income and provide stable employment/activities
+                        for its members.
+                    </p>
+
+                    <p class="lead">
+                        <strong>Financial and ownership stake</strong><br>
+                        Members contribute directly to building the enterprise and sharing in its success.
+                    </p>
+
+                    <p class="lead">
+                        <strong>An opportunity to practice democracy in Star Citizen</strong><br>
+                        Members participate directly in decisions that affect them in their workplace as well as those that
+                        determine the growth and success of the Pur'N'Kleen company.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
