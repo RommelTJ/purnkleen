@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_countries',
     'crispy_forms',
     'rest_framework',
+    'bootstrap3',
 
     'accounts',
 ]

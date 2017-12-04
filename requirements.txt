@@ -4,3 +4,4 @@ pytz==2017.3
 django-countries==4.4
 django-crispy-forms==1.7.0
 djangorestframework==3.7.3
+django-bootstrap3==9.1.0
