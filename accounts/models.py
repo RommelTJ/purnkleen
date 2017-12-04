@@ -15,6 +15,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')  # user.profile
     objects = UserProfileManager()
 
+    def __str__(self):
+        return self.user.username
+
     def get_absolute_url(self):
         return reverse_lazy("profiles:detail", kwargs={"username": self.user.username})
 
