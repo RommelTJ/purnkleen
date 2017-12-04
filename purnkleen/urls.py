@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 
+from accounts.views import UserRegisterView
 from . import views
 
 urlpatterns = [
@@ -26,6 +27,10 @@ urlpatterns = [
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include('accounts.api.urls', namespace='profiles-api')),
+    url(r'^register/$', UserRegisterView.as_view(), name='register'),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include('registration.backends.hmac.urls')),
+
     url(r'^', include('accounts.urls', namespace='profiles')),
 
     url(r'^$', views.home, name='index'),
