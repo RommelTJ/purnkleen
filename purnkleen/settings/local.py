@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'django_countries',
     'crispy_forms',
     'rest_framework',
+
+    'accounts',
 ]
 
 MIDDLEWARE = [
