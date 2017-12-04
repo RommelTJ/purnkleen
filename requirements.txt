@@ -1,7 +1,9 @@
+confusable-homoglyphs==2.0.2
 Django==2.0
-psycopg2==2.7.3.2
-pytz==2017.3
+django-bootstrap3==9.1.0
 django-countries==4.4
 django-crispy-forms==1.7.0
+django-registration==2.3
 djangorestframework==3.7.3
-django-bootstrap3==9.1.0
+psycopg2==2.7.3.2
+pytz==2017.3

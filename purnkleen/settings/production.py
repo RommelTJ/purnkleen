@@ -149,3 +149,9 @@ STATICFILES_DIRS = [
 ]
 # Will be served.
 STATIC_ROOT = os.path.join(BASE_DIR, "static-serve")
+
+# Django Registration settings
+
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window
+REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_EMAIL_HTML = True
