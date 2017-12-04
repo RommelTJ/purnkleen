@@ -2,3 +2,5 @@ Django==2.0
 psycopg2==2.7.3.2
 pytz==2017.3
 django-countries==4.4
+django-crispy-forms==1.7.0
+djangorestframework==3.7.3
