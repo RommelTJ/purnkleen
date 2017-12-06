@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^api/', include('accounts.api.urls', namespace='profiles-api')),
     url(r'^register/$', UserRegisterView.as_view(), name='register'),
     url(r'^', include('django.contrib.auth.urls')),
+    # We edited the library manually to add this change: https://github.com/ubernostrum/django-registration/pull/111
     url(r'^', include('registration.backends.hmac.urls')),
-
     url(r'^', include('accounts.urls', namespace='profiles')),
 
     url(r'^$', views.home, name='index'),
