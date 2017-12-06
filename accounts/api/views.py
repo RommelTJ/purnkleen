@@ -11,7 +11,7 @@ class AccountsListAPIView(generics.ListAPIView):
     pagination_class = StandardResultsPagination
 
     def get_serializer_context(self, *args, **kwargs):
-        context = super(AccountsListAPIView, self).get_serializer_context()
+        context = super(AccountsListAPIView, self).get_serializer_context(*args, **kwargs)
         context['request'] = self.request
         return context
 
@@ -19,7 +19,7 @@ class AccountsListAPIView(generics.ListAPIView):
         requested_user = self.kwargs.get("username")
 
         if requested_user:
-            qs = UserProfile.objects.filter(user__username=requested_user)
+            qs = UserProfile.objects.filter(user__username=requested_user).order_by('id')
         else:
-            qs = UserProfile.objects.all()
+            qs = UserProfile.objects.all().order_by('id')
         return qs
