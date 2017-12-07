@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'bootstrap3',
 
     'accounts',
+    'employees',
 ]
 
 MIDDLEWARE = [
