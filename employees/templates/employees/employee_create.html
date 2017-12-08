@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+{% load bootstrap3 %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Employee Registration{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Profile Registration</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Profile Registration</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+            {% include "employees/form.html" with form=form btn_title='Register' %}
+        </div>
+    </section>
+
+{% endblock %}
