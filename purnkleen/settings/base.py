@@ -38,7 +38,6 @@ EMAIL_USE_TLS = config.get('email', 'EMAIL_USE_TLS')
 DEFAULT_FROM_EMAIL = config.get('email', 'DEFAULT_FROM_EMAIL')
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -102,7 +101,6 @@ DATABASES = {
         'PORT': config.get('database', 'DATABASE_PORT'),
     }
 }
-
 
 
 # Password validation
