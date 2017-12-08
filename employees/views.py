@@ -26,6 +26,9 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
             self.object = form.save(commit=False)
             self.object.emp_no = generate_next_emp_no()
             self.object.user = self.request.user
+            self.object.user.first_name = form.data['first_name']
+            self.object.user.last_name = form.data['last_name']
+            self.object.user.save()
             self.object.type = 'AFF'
             self.object.save()
             return HttpResponseRedirect('/')

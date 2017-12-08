@@ -6,9 +6,24 @@ from .models import Employee
 
 
 class EmployeeForm(forms.ModelForm):
-    callsign = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'RedOne'}))
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'Chris'}),
+        required=True,
+        label='First name'
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'Roberts'}),
+        required=True,
+        label='Last name'
+    )
+    callsign = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'RedOne'}),
+        required=True,
+        label='Callsign'
+    )
     rsi_url = forms.URLField(
         widget=forms.URLInput(attrs={'placeholder': 'https://robertsspaceindustries.com/citizens/croberts68'}),
+        required=True,
         label="RSI URL"
     )
     birth_date = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2025)), initial=datetime(1988, 1, 1))
@@ -19,6 +34,8 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = (
+            'first_name',
+            'last_name',
             'callsign',
             'rsi_url',
             'primary_activity',
