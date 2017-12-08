@@ -36,7 +36,7 @@ class Employee(models.Model):
     )
 
     emp_no = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     type = models.CharField(max_length=3, choices=EMPLOYEE_TYPES, default='AFF')
     callsign = models.CharField(max_length=255)
     rsi_url = models.URLField(default='https://robertsspaceindustries.com/citizens/croberts68')
