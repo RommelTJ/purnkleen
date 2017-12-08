@@ -23,58 +23,40 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^$', views.home, name='index'),
+    url(r'^team/', include('employees.urls', namespace='employee')),
     url(r'^api/', include('accounts.api.urls', namespace='profiles-api')),
     url(r'^', include('django.contrib.auth.urls')),
-    # We edited the library manually to add this change: https://github.com/ubernostrum/django-registration/pull/111
+    # We edited the registrations library manually to add this change:
+    # https://github.com/ubernostrum/django-registration/pull/111
     url(r'^', include('registration.backends.hmac.urls')),
     url(r'^', include('accounts.urls', namespace='profiles')),
 
-    url(r'^$', views.home, name='index'),
-    url(r'^giveaway/$', views.giveaway, name='giveaway'),
 
-    #########################
-    # Start About Views     #
-    #########################
+
+
+    ####################
+    # Static pages     #
+    ####################
+    url(r'^giveaway/$', views.giveaway, name='giveaway'),
     url(r'^about/$', views.about, name='about'),
     url(r'^vision/$', views.vision, name='vision'),
     url(r'^values/$', views.values, name='values'),
-    # url(r'^team/$', views.ProfileListView.as_view(), name='team'),
     url(r'^benefits/$', views.benefits, name='benefits'),
     url(r'^bylaws/$', views.bylaws, name='bylaws'),
-    url(r'^join/$', views.join, name='join'),
-    # url(r'^employees/profile/create/$', views.PNKProfileCreateView.as_view(), name='pnk_profile_create'),
-    #########################
-    # End About Views       #
-    #########################
-
-    #########################
-    # Start Solutions Views #
-    #########################
     url(r'^mission-planner/$', views.mission_planner, name='mission-planner'),
     url(r'^fleet-view/$', views.fleet_view, name='fleet-view'),
-    #########################
-    # End Solutions Views   #
-    #########################
-
-    #########################
-    # Start Services Views  #
-    #########################
     url(r'^fuel-services/$', views.fuel_services, name='fuel-services'),
     url(r'^maintenance-and-repair/$', views.maintenance_repair, name='maintenance-and-repair'),
     url(r'^transportation/$', views.transportation, name='transportation'),
-    #########################
-    # End Services Views    #
-    #########################
-
-    #########################
-    # Start Knowledge Views #
-    #########################
     url(r'^links-and-tools/$', views.links_tools, name='links-and-tools'),
-    #########################
-    # End Knowledge Views   #
-    #########################
+    ####################
+    # End Static pages #
+    ####################
+
+    # url(r'^team/$', views.ProfileListView.as_view(), name='team'),
+    # url(r'^join/$', views.join, name='join'),
+    # url(r'^employees/profile/create/$', views.PNKProfileCreateView.as_view(), name='pnk_profile_create'),
 ]
 
 if settings.DEBUG:
