@@ -1,11 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
+from django.views.generic import CreateView, UpdateView
 
 from .forms import EmployeeForm
-from .mixins import UserOwnerMixin
 from .models import Employee, generate_next_emp_no
 
 
@@ -52,7 +51,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         return qs
 
 
-class EmployeeUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
     form_class = EmployeeForm
     template_name = 'employees/employee_update.html'
     model = Employee
