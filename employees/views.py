@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from .forms import EmployeeForm
+from .mixins import UserOwnerMixin
 from .models import Employee, generate_next_emp_no
 
 
@@ -17,7 +18,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         context = self.get_context_data()
         if context.get('employee') is None:
             form = EmployeeForm()
-            return render(request, self.get_template_name(), {'form': form})
+            return render(request, self.template_name, {'form': form})
         return HttpResponseRedirect('/')
 
     def post(self, request, *args, **kwargs):
@@ -34,9 +35,6 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
             return HttpResponseRedirect('/')
         return render(request, self.template_name, {'form': form})
 
-    def get_template_name(self):
-        return self.template_name
-
     def get_context_data(self):
         return {
             'employee': self.get_employee(),
@@ -51,7 +49,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         return qs
 
 
-class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
     form_class = EmployeeForm
     template_name = 'employees/employee_update.html'
     model = Employee
@@ -74,6 +72,4 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView):
             self.object.user.save()
             self.object.save()
             return HttpResponseRedirect('/')
-        else:
-            print("form is invalid")
         return render(request, self.template_name, {'form': form})
