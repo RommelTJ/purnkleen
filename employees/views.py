@@ -17,7 +17,10 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
         if context.get('employee') is None:
-            form = EmployeeForm()
+            initial = self.get_initial()
+            initial['first_name'] = self.request.user.first_name
+            initial['last_name'] = self.request.user.last_name
+            form = EmployeeForm(initial=initial)
             return render(request, self.template_name, {'form': form})
         return HttpResponseRedirect('/')
 
