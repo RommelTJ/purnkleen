@@ -1,0 +1,43 @@
+{% extends 'base2.html' %}
+{% load bootstrap3 %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Employee Delete{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Profile Delete</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Profile Delete</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+            <form action="{% if action_url %}{{ action_url }}{% endif %}" method="post" role="form" class="form-horizontal">
+                {% csrf_token %}
+                <p><b>Are you sure you want to delete your profile?</b></p>
+
+                {% buttons %}
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-lg red dark-text">
+                            {% bootstrap_icon "warning-sign" %} Delete My Account
+                        </button>
+                    </div>
+                {% endbuttons %}
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

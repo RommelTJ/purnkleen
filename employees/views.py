@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .forms import EmployeeForm
 from .mixins import UserOwnerMixin
@@ -73,3 +73,9 @@ class EmployeeUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
             self.object.save()
             return HttpResponseRedirect('/')
         return render(request, self.template_name, {'form': form})
+
+
+class EmployeeDeleteView(LoginRequiredMixin, UserOwnerMixin, DeleteView):
+    model = Employee
+    template_name = 'employees/employee_delete.html'
+    success_url = reverse_lazy('index')
