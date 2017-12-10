@@ -30,9 +30,7 @@ urlpatterns = [
     # We edited the registrations library manually to add this change:
     # https://github.com/ubernostrum/django-registration/pull/111
     url(r'^accounts/', include('registration.backends.hmac.urls')),
-    url(r'^', include('accounts.urls', namespace='profiles')),
-
-
+    url(r'^accounts/', include('accounts.urls', namespace='profiles')),
 
 
     ####################
