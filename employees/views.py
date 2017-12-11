@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 
 from .forms import EmployeeForm
 from .mixins import UserOwnerMixin
@@ -82,3 +82,8 @@ class EmployeeDeleteView(LoginRequiredMixin, UserOwnerMixin, DeleteView):
     model = Employee
     template_name = 'employees/employee_delete.html'
     success_url = reverse_lazy('index')
+
+
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = 'employees/employee_detail.html'

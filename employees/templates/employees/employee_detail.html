@@ -1,0 +1,52 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Profile{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">{{ object.user.first_name }} {{ object.user.last_name }}</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Profile Page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">{{ object.user.first_name }} {{ object.user.last_name }}</h1>
+                <p class="section-sub">
+                    Coming soon: All the details about {{ object.user.first_name }} {{ object.user.last_name }}.
+                </p>
+
+                <p>
+                    {{ object.emp_no }} <br/>
+                    {{ object.user.first_name }} <br/>
+                    {{ object.user.last_name }} <br/>
+                    {{ object.type }} <br/>
+                    {{ object.callsign }} <br/>
+                    {{ object.rsi_url }} <br/>
+                    {{ object.birth_date }} <br/>
+                    {{ object.hire_date }} <br/>
+                    {{ object.country }} <br/>
+                    {{ object.primary_activity }} <br/>
+                    {{ object.secondary_activity }} <br/>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
