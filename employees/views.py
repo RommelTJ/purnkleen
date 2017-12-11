@@ -12,7 +12,6 @@ from .models import Employee, generate_next_emp_no
 class EmployeeCreateView(LoginRequiredMixin, CreateView):
     form_class = EmployeeForm
     template_name = 'employees/employee_create.html'
-    success_url = reverse_lazy('index')
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
@@ -35,7 +34,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
             self.object.user.save()
             self.object.type = 'AFF'
             self.object.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse_lazy('employee:detail', kwargs={'pk': self.object.emp_no}))
         return render(request, self.template_name, {'form': form})
 
     def get_context_data(self):
@@ -53,10 +52,9 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
 
 
 class EmployeeUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
+    model = Employee
     form_class = EmployeeForm
     template_name = 'employees/employee_update.html'
-    model = Employee
-    success_url = reverse_lazy('index')
 
     def get_initial(self):
         initial = super(EmployeeUpdateView, self).get_initial()
@@ -74,7 +72,7 @@ class EmployeeUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
             self.object.user.last_name = form.data['last_name']
             self.object.user.save()
             self.object.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse_lazy('employee:detail', kwargs={'pk': self.object.emp_no}))
         return render(request, self.template_name, {'form': form})
 
 
