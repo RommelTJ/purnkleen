@@ -4,6 +4,10 @@ from django.shortcuts import render
 #########################
 # Static Views          #
 #########################
+def home(request):
+    return render(request, 'index.html', {})
+
+
 def giveaway(request):
     return render(request, 'giveaway.html', {})
 

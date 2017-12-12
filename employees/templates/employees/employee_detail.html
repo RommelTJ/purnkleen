@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-bold">{{ object.user.first_name }} {{ object.user.last_name }}</h2>
+                    <h2 class="text-bold">{{ employee.user.first_name }} {{ employee.user.last_name }}</h2>
                     <ol class="breadcrumb">
                         <li><a href="{% url 'index' %}">Home</a></li>
                         <li class="active">Profile Page</li>
@@ -23,30 +23,68 @@
     <!--page title end-->
 
     <section class="section-padding">
+
         <div class="container">
 
-            <div class="text-center mb-80">
-                <h1 class="section-title text-uppercase">{{ object.user.first_name }} {{ object.user.last_name }}</h1>
-                <p class="section-sub">
-                    Coming soon: All the details about {{ object.user.first_name }} {{ object.user.last_name }}.
-                </p>
+            <div class="row">
+                <div class="col-md-4 col-sm-3">
+                    <figure class="team-img text-center">
+                        <img src="{% static 'img/star_citizen_marine_400x400.jpg' %}" class="img-responsive" alt="Image">
+                    </figure>
+                </div>
 
-                <p>
-                    {{ object.emp_no }} <br/>
-                    {{ object.user.first_name }} <br/>
-                    {{ object.user.last_name }} <br/>
-                    {{ object.type }} <br/>
-                    {{ object.callsign }} <br/>
-                    {{ object.rsi_url }} <br/>
-                    {{ object.birth_date }} <br/>
-                    {{ object.hire_date }} <br/>
-                    {{ object.country }} <br/>
-                    {{ object.primary_activity }} <br/>
-                    {{ object.secondary_activity }} <br/>
-                </p>
-            </div>
+                <div class="col-md-8 col-sm-9">
+                    <div class="team-intro">
+                        <div class="player_info">
+                            <div class="player_name_big">
+                                <i class="flag2x {{ employee.country.flag_css }}"></i>
+                                {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }} <br/>
+                                <span class="preferred_activity {{ employee.primary_activity }}">Bounty Hunting</span>
+                                <span class="preferred_activity {{ employee.secondary_activity }}">Engineering</span>
+                            </div>
+                        </div>
+                    </div>
 
-        </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="player_bio">
+                                    A id a torquent tortor at lacus et donec platea eu scelerisque maecenas ac eros a adipiscing
+                                    id lobortis cum lacus erat. Parturient eleifend adipiscing ultrices a cursus est feugiat
+                                    porta a at condimentum fames adipiscing odio in nisi venenatis suspendisse suspendisse
+                                    parturient. Leo congue sociosqu maecenas ligula eu penatibus at suscipit mus scelerisque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="player_stat">
+                            <span class="player_stat_title">Type: </span>
+                            <span class="player_stat_value">{{ employee.type }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">Employee: </span>
+                            <span class="player_stat_value">#{{ employee.emp_no }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">Hire date: </span>
+                            <span class="player_stat_value">{{ employee.hire_date|date:"d M Y" }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">RSI Profile: </span>
+                            <span class="player_stat_value"><a href="{{ employee.rsi_url }}" target="_blank">Profile</a></span>
+                        </div>
+                    </div>
+
+                </div> <!-- col-md-8 -->
+
+            </div><!-- row -->
+        </div> <!-- container -->
+
     </section>
 
 {% endblock %}
