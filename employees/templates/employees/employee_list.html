@@ -34,113 +34,55 @@
                     <ul class="player_list">
                         {% for employee in employee_list %}
                             <li class="player_row {{forloop.counter|divisibleby:2|yesno:"even,odd"}}">
-                                <div class="player_image_container">
-                                    <a href="{% url 'employees:detail' employee.emp_no %}">
-                                        <img src="{% static 'img/star_citizen_marine.png' %}"
-                                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
-                                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
-                                             height="125" width="88">
-                                    </a>
-                                </div>
-                                <div class="player_info">
-                                    <div class="player_name">
-                                        <i class="flag2x {{ employee.country.flag_css }}"></i>
-                                        {{ employee.user.first_name }} {{ employee.user.last_name }}
-                                    </div>
-                                    <div class="player_stats">
-                                        <div class="handle">
-                                            <span class="category">Callsign:</span>
-                                            <span>{{ employee.callsign }}</span>
-                                        </div>
-                                        <div class="type">
-                                            <span class="category">Status:</span>
-                                            <span>
-                                        {% if employee.type == 'MEM' %}
-                                            Member-Owner
-                                        {% elif employee.type == 'AFF' %}
-                                            Affiliate
-                                        {% elif employee.type == 'RET' %}
-                                            Retired
-                                        {% elif employee.type == 'KIA' %}
-                                            Killed in action
-                                        {% else %}
-                                            N/A
-                                        {% endif %}
-                                    </span>
-                                        </div>
-                                        <div class="primary_activity">
-                                            <span class="category">Primary Activity:</span>
-                                            <span>
-                                        {% if employee.primary_activity == 'HUN' %}
-                                            Bounty Hunting
-                                        {% elif employee.primary_activity == 'ENG' %}
-                                            Engineering
-                                        {% elif employee.primary_activity == 'EXP' %}
-                                            Exploration
-                                        {% elif employee.primary_activity == 'FRE' %}
-                                            Freelancing
-                                        {% elif employee.primary_activity == 'INF' %}
-                                            Infiltration
-                                        {% elif employee.primary_activity == 'PIR' %}
-                                            Piracy
-                                        {% elif employee.primary_activity == 'RES' %}
-                                            Resources
-                                        {% elif employee.primary_activity == 'SCO' %}
-                                            Scouting
-                                        {% elif employee.primary_activity == 'SEC' %}
-                                            Security
-                                        {% elif employee.primary_activity == 'SMU' %}
-                                            Smuggling
-                                        {% elif employee.primary_activity == 'SOC' %}
-                                            Social
-                                        {% elif employee.primary_activity == 'TRD' %}
-                                            Trading
-                                        {% elif employee.primary_activity == 'TRN' %}
-                                            Transport
-                                        {% else %}
-                                            N/A
-                                        {% endif %}
-                                    </span>
-                                        </div>
-                                        <div class="secondary_activity">
-                                            <span class="category">Secondary Activity:</span>
-                                            <span>
-                                        {% if employee.secondary_activity == 'HUN' %}
-                                            Bounty Hunting
-                                        {% elif employee.secondary_activity == 'ENG' %}
-                                            Engineering
-                                        {% elif employee.secondary_activity == 'EXP' %}
-                                            Exploration
-                                        {% elif employee.secondary_activity == 'FRE' %}
-                                            Freelancing
-                                        {% elif employee.secondary_activity == 'INF' %}
-                                            Infiltration
-                                        {% elif employee.secondary_activity == 'PIR' %}
-                                            Piracy
-                                        {% elif employee.secondary_activity == 'RES' %}
-                                            Resources
-                                        {% elif employee.secondary_activity == 'SCO' %}
-                                            Scouting
-                                        {% elif employee.secondary_activity == 'SEC' %}
-                                            Security
-                                        {% elif employee.secondary_activity == 'SMU' %}
-                                            Smuggling
-                                        {% elif employee.secondary_activity == 'SOC' %}
-                                            Social
-                                        {% elif employee.secondary_activity == 'TRD' %}
-                                            Trading
-                                        {% elif employee.secondary_activity == 'TRN' %}
-                                            Transport
-                                        {% else %}
-                                            N/A
-                                        {% endif %}
-                                    </span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="category">Hire Date:</span>
-                                            <span>{{ employee.hire_date|date:"d M Y" }}</span>
+                                <div class="row">
+                                    <div class="player_info_column col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-2 text-center">
+                                                <div class="player_image_container">
+                                                    <a href="{% url 'employees:detail' employee.emp_no %}">
+                                                        <img src="{% static 'img/star_citizen_marine_400x400.jpg' %}"
+                                                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                                                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                                                             width="100%"
+                                                             class="img-rounded">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-10">
+                                                <div class="player_info">
+                                                    <div class="player_name">
+                                                        <i class="flag2x {{ employee.country.flag_css }}"></i>
+                                                        {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }}
+                                                        <br/>
+                                                        <span class="preferred_activity preferred_activity_small {{ employee.primary_activity }}">{{ employee.primary_activity }}</span>
+                                                        <span class="preferred_activity preferred_activity_small {{ employee.secondary_activity }}">{{ employee.secondary_activity }}</span>
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="player_stat">
+                                                            <span class="player_stat_title">Status:</span>
+                                                            <span>{{ employee.type }}</span>
+                                                        </div>
+
+                                                        <div class="player_stat">
+                                                            <span class="player_stat_title">Hire Date:</span>
+                                                            <span>{{ employee.hire_date|date:"d M Y" }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="player_actions_column col-md-3 text-center">
+                                        <div>
+                                            <a href="{% url 'employee:detail' employee.emp_no %}">
+                                                <button type="button" class="btn btn-primary btn-lg grey light-text waves-effect waves-light">View more</button>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </li>
                         {% endfor %}
