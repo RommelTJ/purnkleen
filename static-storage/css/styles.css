@@ -2338,40 +2338,39 @@ KEY FRAME
     padding: 1em;
 }
 .player_image_container {
-    border-radius: 5px;
     display: inline-block;
-    height: 88px;
     overflow: hidden;
     position: relative;
-    width: 88px;
-    margin: 0.5em 1em 0 0;
 }
 .player_info {
     width: 60%;
     display: inline-block;
     vertical-align: top;
 }
-.preferred_activity {
+.preferred_activity_large {
     font-size: 0.6em;
-    display: inline-block;
     padding: 0.05em 0.5em;
-    text-transform: uppercase;
+}
+.preferred_activity_small {
+    font-size: 0.5em;
+    padding: 0.05em 0.5em;
 }
 .preferred_activity {
     background: #999;
     color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
 }
 
 .player_name {
     color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
     font-size: 1.75em;
 }
 .player_name_big {
-    color: black;
     font-size: 2em;
-    text-transform: uppercase;
-    display: inline-block;
-    font-weight: bold;
 }
 .player_bio {
     margin: 1em 0;
