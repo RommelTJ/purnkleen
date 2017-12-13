@@ -52,9 +52,7 @@ urlpatterns = [
     # End Static pages #
     ####################
 
-    # url(r'^team/$', views.ProfileListView.as_view(), name='team'),
     # url(r'^join/$', views.join, name='join'),
-    # url(r'^employees/profile/create/$', views.PNKProfileCreateView.as_view(), name='pnk_profile_create'),
 ]
 
 if settings.DEBUG:
