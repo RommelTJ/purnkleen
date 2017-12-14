@@ -81,22 +81,19 @@
                     </div>
 
                     {% if is_owner %}
-                    <div class="player_actions row">
-                        <div class="col-md-3">
+                    <div class="player_actions">
+
+                        <p>
                             <a href="{% url 'employee:update' employee.emp_no %}">
-                                <button type="button" class="btn btn-primary btn-lg green light-text waves-effect waves-light">Update</button>
+                                <button type="button" class="btn btn-primary btn-lg blue light-text waves-effect waves-light">Update</button>
                             </a>
-                        </div>
-                        <div class="col-md-3">
                             <a href="{% url 'employee:update' employee.emp_no %}">
-                                <button type="button" class="btn btn-primary btn-lg red light-text waves-effect waves-light">Retire</button>
+                                <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light">Retire</button>
                             </a>
-                        </div>
-                        <div class="col-md-3">
                             <a href="{% url 'employee:update' employee.emp_no %}">
-                                <button type="button" class="btn btn-primary btn-lg red light-text waves-effect waves-light">KIA</button>
+                                <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light">KIA</button>
                             </a>
-                        </div>
+                        </p>
                     </div>
                     {% endif %}
 

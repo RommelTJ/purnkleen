@@ -2383,6 +2383,9 @@ KEY FRAME
 .player_stat_title {
     font-weight: bold;
 }
+.player_actions {
+    margin-top: 1em;
+}
 .category {
     text-transform: uppercase;
     color: black;
