@@ -86,6 +86,12 @@ class EmployeeDetailView(DetailView):
     model = Employee
     template_name = 'employees/employee_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(EmployeeDetailView, self).get_context_data(**kwargs)
+        is_owner = self.request.user == self.object.user
+        context['is_owner'] = is_owner
+        return context
+
 
 class EmployeeListView(ListView):
     model = Employee
