@@ -16,9 +16,9 @@ class UserOwnerMixin(object):
     def dispatch(self, request, *args, **kwargs):
         # Only dispatch if we are the owner of the user object.
         # Employees can only have one active profile at a time.
-        if self.get_queryset().count == 1:
+        if self.get_queryset().count() == 1:
             employee = self.get_queryset().first()
-            if employee.emp_no == kwargs['pk']:
+            if employee.emp_no == int(kwargs['pk']):
                 return super(UserOwnerMixin, self).dispatch(request, *args, **kwargs)
             else:
                 return HttpResponseRedirect(reverse_lazy('employee:list'))
