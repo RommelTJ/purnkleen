@@ -9,7 +9,8 @@ class EmployeeForm(forms.ModelForm):
     first_name = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Chris'}),
         required=True,
-        label='First name'
+        label='First name',
+        help_text="Don't enter your real name if you don't feel comfortable with this being public."
     )
     last_name = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Roberts'}),
@@ -26,7 +27,10 @@ class EmployeeForm(forms.ModelForm):
         required=True,
         label="RSI URL"
     )
-    birth_date = forms.DateField(widget=forms.SelectDateWidget(years=range(1950, 2025)), initial=datetime(1988, 1, 1))
+    birth_date = forms.DateField(
+        widget=forms.SelectDateWidget(years=range(1950, 2030)),
+        help_text="Not required but used to wish you happy birthday."
+    )
 
     def __str__(self):
         return '%s %s' % (self.user.first_name, self.user.last_name)
@@ -42,5 +46,6 @@ class EmployeeForm(forms.ModelForm):
             'secondary_activity',
             'country',
             'birth_date',
+            'bio',
         )
         widgets = {'country': CountrySelectWidget()}
