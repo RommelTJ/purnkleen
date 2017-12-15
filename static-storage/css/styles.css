@@ -2349,9 +2349,11 @@ KEY FRAME
 }
 .preferred_activity_large {
     font-size: 0.6em;
+    margin: auto 3px;
 }
 .preferred_activity_small {
     font-size: 0.5em;
+    margin: auto 2px;
 }
 .preferred_activity {
     background: #999;
@@ -2366,6 +2368,7 @@ KEY FRAME
     text-transform: uppercase;
     display: inline-block;
     font-size: 1.75em;
+    line-height: 0.9em;
 }
 .player_name_big {
     font-size: 2em;
