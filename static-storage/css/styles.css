@@ -2411,3 +2411,12 @@ KEY FRAME
 label {
     font-size: unset;
 }
+
+/* Modals */
+.modal {
+    box-shadow: none;
+    background: none;
+}
+.modal-backdrop {
+    background: none;
+}

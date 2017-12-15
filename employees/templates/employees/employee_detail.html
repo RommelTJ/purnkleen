@@ -87,12 +87,12 @@
                             <a href="{% url 'employee:update' employee.emp_no %}">
                                 <button type="button" class="btn btn-primary btn-lg blue light-text waves-effect waves-light">Update</button>
                             </a>
-                            <a href="{% url 'employee:update' employee.emp_no %}">
-                                <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light">Retire</button>
-                            </a>
-                            <a href="{% url 'employee:update' employee.emp_no %}">
-                                <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light">KIA</button>
-                            </a>
+                            <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light" data-toggle="modal" data-target="#retireModal">
+                                Retire
+                            </button>
+                            <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light" data-toggle="modal" data-target="#kiaModal">
+                                KIA
+                            </button>
                         </p>
                     </div>
                     {% endif %}
@@ -101,6 +101,9 @@
 
             </div><!-- row -->
         </div> <!-- container -->
+
+        {% include 'employees/modals/employee_retire_modal.html' %}
+        {% include 'employees/modals/employee_kia_modal.html' %}
 
     </section>
 
