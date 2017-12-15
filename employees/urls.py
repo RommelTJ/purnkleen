@@ -7,6 +7,7 @@ from .views import (
     EmployeeDeleteView,
     EmployeeDetailView,
     employee_retire_view,
+    employee_kia_view,
 )
 
 app_name = 'employees'
@@ -17,4 +18,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/delete/$', EmployeeDeleteView.as_view(), name='delete'),
     url(r'^(?P<pk>\d+)/$', EmployeeDetailView.as_view(), name='detail'),
     url(r'^(?P<pk>\d+)/retire/$', employee_retire_view, name='retire'),
+    url(r'^(?P<pk>\d+)/kia/$', employee_kia_view, name='kia'),
 ]

@@ -111,3 +111,15 @@ def employee_retire_view(request, **kwargs):
             return HttpResponseRedirect(reverse_lazy('employee:list'))
         return HttpResponseRedirect(reverse_lazy('employee:list'))
     return HttpResponseRedirect(reverse_lazy('employee:list'))
+
+
+def employee_kia_view(request, **kwargs):
+    if kwargs['pk'] is not None:
+        emp_no = kwargs['pk']
+        employee = Employee.objects.get(emp_no=emp_no)
+        if request.user == employee.user:
+            employee.type = 'KIA'
+            employee.save()
+            return HttpResponseRedirect(reverse_lazy('employee:list'))
+        return HttpResponseRedirect(reverse_lazy('employee:list'))
+    return HttpResponseRedirect(reverse_lazy('employee:list'))

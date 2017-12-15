@@ -10,7 +10,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default blue light-text" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary materialize-red light-text">KIA</button>
+                <a href="{% url 'employee:kia' employee.emp_no %}">
+                    <button type="button" class="btn btn-primary materialize-red light-text">KIA</button>
+                </a>
             </div>
         </div>
     </div>
