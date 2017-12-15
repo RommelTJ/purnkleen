@@ -99,3 +99,15 @@ class EmployeeListView(ListView):
     paginate_by = 20
     ordering = 'emp_no'
     queryset = Employee.objects.filter(type__in=["MEM","AFF"])
+
+
+def employee_retire_view(request, **kwargs):
+    if kwargs['pk'] is not None:
+        emp_no = kwargs['pk']
+        employee = Employee.objects.get(emp_no=emp_no)
+        if request.user == employee.user:
+            employee.type = 'RET'
+            employee.save()
+            return HttpResponseRedirect(reverse_lazy('employee:list'))
+        return HttpResponseRedirect(reverse_lazy('employee:list'))
+    return HttpResponseRedirect(reverse_lazy('employee:list'))
