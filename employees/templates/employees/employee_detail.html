@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <h2 class="text-bold">{{ employee.user.first_name }} {{ employee.user.last_name }}</h2>
                     <ol class="breadcrumb">
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'employee:list' %}">Our Team</a></li>
                         <li class="active">Profile Page</li>
                     </ol>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="team-intro">
                         <div>
                             <div class="player_name player_name_big">
-                                <i class="flag2x {{ employee.country.flag_css }}"></i>
+                                <img src="{% static 'img/flags/svg/'|addstr:employee.country|addstr:'.svg'  %}" height="30">
                                 {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }} <br/>
                                 <span class="label label-default preferred_activity_large">
                                     {{ activity_dict|get_value:employee.primary_activity }}
