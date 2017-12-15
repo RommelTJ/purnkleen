@@ -18,6 +18,12 @@ class Employee(models.Model):
         ('RET', 'Retired'),
         ('KIA', 'Killed in action'),
     )
+    EMPLOYEE_DICT = {
+        'MEM': 'Member-Owner',
+        'AFF': 'Affiliate',
+        'RET': 'Retired',
+        'KIA': 'Killed in action',
+    }
 
     ACTIVITY_CHOICES = (
         ('HUN', 'Bounty Hunting'),

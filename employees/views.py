@@ -91,6 +91,7 @@ class EmployeeDetailView(DetailView):
         is_owner = self.request.user == self.object.user
         context['is_owner'] = is_owner
         context['activity_dict'] = Employee.ACTIVITY_DICT
+        context['employee_dict'] = Employee.EMPLOYEE_DICT
         return context
 
 
@@ -104,6 +105,7 @@ class EmployeeListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EmployeeListView, self).get_context_data()
         context['activity_dict'] = Employee.ACTIVITY_DICT
+        context['employee_dict'] = Employee.EMPLOYEE_DICT
         return context
 
 
