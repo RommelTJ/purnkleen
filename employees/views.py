@@ -90,6 +90,7 @@ class EmployeeDetailView(DetailView):
         context = super(EmployeeDetailView, self).get_context_data(**kwargs)
         is_owner = self.request.user == self.object.user
         context['is_owner'] = is_owner
+        context['activity_dict'] = Employee.ACTIVITY_DICT
         return context
 
 
@@ -99,6 +100,11 @@ class EmployeeListView(ListView):
     paginate_by = 20
     ordering = 'emp_no'
     queryset = Employee.objects.filter(type__in=["MEM","AFF"])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(EmployeeListView, self).get_context_data()
+        context['activity_dict'] = Employee.ACTIVITY_DICT
+        return context
 
 
 def employee_retire_view(request, **kwargs):

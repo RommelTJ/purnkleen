@@ -1,6 +1,7 @@
 {% extends 'base2.html' %}
 
 {% load static %}
+{% load employee_extras %}
 
 {% block title %}Pur'N'Kleen Profile{% endblock %}
 
@@ -39,8 +40,12 @@
                             <div class="player_name player_name_big">
                                 <i class="flag2x {{ employee.country.flag_css }}"></i>
                                 {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }} <br/>
-                                <span class="label label-default preferred_activity_large {{ employee.primary_activity }}">{{ employee.primary_activity }}</span>
-                                <span class="label label-default preferred_activity_large {{ employee.secondary_activity }}">{{ employee.secondary_activity }}</span>
+                                <span class="label label-default preferred_activity_large">
+                                    {{ activity_dict|get_value:employee.primary_activity }}
+                                </span>
+                                <span class="label label-default preferred_activity_large">
+                                    {{ activity_dict|get_value:employee.secondary_activity }}
+                                </span>
                             </div>
                         </div>
                     </div>

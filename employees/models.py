@@ -34,6 +34,22 @@ class Employee(models.Model):
         ('TRD', 'Trading'),
         ('TRN', 'Transport'),
     )
+    ACTIVITY_DICT = {
+        'HUN': 'Bounty Hunting',
+        'ENG': 'Engineering',
+        'EXP': 'Exploration',
+        'FRE': 'Freelancing',
+        'INF': 'Infiltration',
+        'PIR': 'Piracy',
+        'RES': 'Resources',
+        'SCO': 'Scouting',
+        'SEC': 'Security',
+        'SMU': 'Smuggling',
+        'SOC': 'Social',
+        'TRD': 'Trading',
+        'TRN': 'Transport',
+    }
+
 
     emp_no = models.IntegerField(primary_key=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -49,3 +65,4 @@ class Employee(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.user.first_name, self.user.last_name)
+
