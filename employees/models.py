@@ -45,6 +45,7 @@ class Employee(models.Model):
     country = CountryField(blank_label='(select country)')
     primary_activity = models.CharField(max_length=3, choices=ACTIVITY_CHOICES, default='RES')
     secondary_activity = models.CharField(max_length=3, choices=ACTIVITY_CHOICES, default='TRD')
+    bio = models.TextField(max_length=1000, blank=True)
 
     def __str__(self):
         return "%s %s" % (self.user.first_name, self.user.last_name)
