@@ -122,32 +122,18 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     color: #c5a5fe;
 }
 
-.page-title.cover-1 {
-    background-image: url(../../img/creative/cover-1.jpg);
-}
-.page-title.cover-2 {
-    background-image: url(../../img/creative/cover-2.jpg);
-}
-.page-title.cover-3 {
-    background-image: url(../../img/creative/cover-3.jpg);
-}
-.page-title.cover-4 {
-    background-image: url(../../img/creative/cover-4.jpg);
-}
+.page-title.cover-1 {}
+.page-title.cover-2 {}
+.page-title.cover-3 {}
+.page-title.cover-4 {}
 
 
 /*
 Background banner images
 ------------------------------------------------------------*/
-.creative-banner-1 {
-    background-image: url("../../img/creative/creative-banner-1.jpg");  
-}
-.creative-banner-2 {
-    background-image: url("../../img/creative/creative-banner-2.jpg");  
-}
-.creative-banner-3 {
-    background-image: url("../../img/creative/creative-banner-3.jpg");  
-}
+.creative-banner-1 {}
+.creative-banner-2 {}
+.creative-banner-3 {}
 
 
 

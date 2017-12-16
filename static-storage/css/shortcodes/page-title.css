@@ -74,7 +74,6 @@ Background page title
 -----------------------------------------------------------------*/
 
 .page-title-bg {
-    background-image: url(../../img/page-header/cover-1.jpg); /*default bg for every page*/
     background-position: 50% 0;
     background-size: cover;
     background-repeat: no-repeat;

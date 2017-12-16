@@ -112,9 +112,7 @@ Promo Box
 
 
 @media (min-width: 992px) {
-    .content-promo-box.banner {
-        background: url("../../img/mockup/mac-spkr.png") right top no-repeat #f5f5f5;
-    }
+    .content-promo-box.banner {}
 }
 
 

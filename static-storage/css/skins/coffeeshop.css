@@ -156,21 +156,13 @@ a:hover {
 /*
 background banner images
 ------------------------------------------------------------*/
-.coffee-banner-1 {
-    background-image: url("../../img/coffee/coffee-banner-1.jpg");  
-}
+.coffee-banner-1 {}
 
-.coffee-banner-2 {
-    background-image: url("../../img/coffee/coffee-banner-2.jpg");
-}
+.coffee-banner-2 {}
 
-.coffee-banner-3 {
-    background-image: url("../../img/coffee/coffee-banner-3.jpg");  
-}
+.coffee-banner-3 {}
 
-.coffee-banner-4 {
-    background-image: url("../../img/coffee/coffee-banner-4.jpg");  
-}
+.coffee-banner-4 {}
 
 
 

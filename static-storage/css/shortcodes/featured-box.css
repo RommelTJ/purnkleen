@@ -369,7 +369,6 @@ Feature Background
 -----------------------------------------------------------------*/
 
 .feature-background {
-    background-image: url(../../img/page-header/header-2.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

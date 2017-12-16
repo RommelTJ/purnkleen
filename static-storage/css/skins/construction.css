@@ -103,7 +103,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 /*Page Cover*/
 .page-title-bg {
-    background-image: url(../../img/construction/page-cover-layer.png);
     background-position: center center;
 }
 
@@ -115,12 +114,9 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 .building-landscape {
-    background: url('../../img/construction/building-land.png') repeat-x center bottom;
     min-height: 133px;
 }
-.building-landscape.light {
-    background: url('../../img/construction/building-land-light.png') repeat-x center bottom;
-}
+.building-landscape.light {}
 
 
 

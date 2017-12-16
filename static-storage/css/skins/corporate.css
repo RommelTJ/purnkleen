@@ -136,14 +136,11 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 /*
 Background banner images
 ------------------------------------------------------------*/
-.corporate-banner-1 {
-    background-image: url("../../img/corporate/corporate-banner-1.jpg");  
-}
+.corporate-banner-1 {}
 
 
 /*page cover*/
 .page-title-bg {
-    background-image: url(../../img/corporate/page-cover.jpg);
     background-color: #446E2C;
 }
 
@@ -213,7 +210,6 @@ Background banner images
 
 /* === Chart CSS  === */
 .chart-wrapper {
-    background-image: url("../../img/corporate/chart-bg.jpg");
     background-position: 50% 0;
     background-size: cover;
     background-repeat: no-repeat;

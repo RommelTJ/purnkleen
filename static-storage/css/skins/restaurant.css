@@ -197,15 +197,9 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 /*
 background banner images
 ------------------------------------------------------------*/
-.rest-banner-1 {
-    background-image: url("../../img/restaurant/banner/rest-banner-1.jpg");  
-}
-.rest-banner-2 {
-    background-image: url("../../img/restaurant/banner/rest-banner-2.jpg");  
-}
-.rest-banner-3 {
-    background-image: url("../../img/restaurant/banner/rest-banner-3.jpg");  
-}
+.rest-banner-1 {}
+.rest-banner-2 {}
+.rest-banner-3 {}
 [class*='rest-banner-'] {
     background-size: cover !important;
 }

@@ -122,26 +122,12 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 /*
 background banner images
 ------------------------------------------------------------*/
-.agency-banner-1 {
-    background-image: url("../../img/agency/banner/agency-banner-1.jpg");  
-}
-.agency-banner-2 {
-    background-image: url("../../img/agency/banner/agency-banner-2.jpg");  
-}
-.agency-banner-3 {
-    background-image: url("../../img/agency/banner/agency-banner-3.jpg");  
-}
-.agency-banner-4 {
-    background-image: url("../../img/agency/banner/agency-banner-4.jpg");  
-}
-.agency-banner-5 {
-    background-image: url("../../img/agency/banner/agency-banner-5.jpg");  
-}
-.agency-banner-6 {
-    background-image: url("../../img/agency/banner/agency-banner-6.jpg");  
-}
-
-
+.agency-banner-1 {}
+.agency-banner-2 {}
+.agency-banner-3 {}
+.agency-banner-4 {}
+.agency-banner-5 {}
+.agency-banner-6 {}
 
 
 .project-carousel.owl-theme .owl-dots .owl-dot span {

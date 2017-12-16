@@ -170,16 +170,9 @@ header.sticky .menuzord-menu>li>a.join-btn {
 /*
 Background banner images
 ------------------------------------------------------------*/
-.event-banner-1 {
-    background-image: url("../../img/event/event-banner-1.jpg");  
-}
-.event-banner-2 {
-    background-image: url("../../img/event/event-banner-2.jpg");  
-}
-.event-banner-3 {
-    background-image: url("../../img/event/event-banner-3.jpg");  
-}
-
+.event-banner-1 {}
+.event-banner-2 {}
+.event-banner-3 {}
 
 
 .overlay.purple-overlay:before {
