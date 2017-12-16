@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'bootstrap3',
+    'stdimage',
 
     'accounts',
     'employees',
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -140,6 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
 # Don't do this in Production. Use a CDN.
 STATICFILES_DIRS = [
@@ -148,6 +151,8 @@ STATICFILES_DIRS = [
 ]
 # Will be served.
 STATIC_ROOT = os.path.join(BASE_DIR, "static-serve")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media-serve")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Django Registration settings
 
