@@ -21,6 +21,10 @@ from django.urls import include
 
 from . import views
 
+admin.site.site_header = "My PNK"
+admin.site.site_title = "PNK Administation"
+admin.site.index_title = "My PNK"
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='index'),
@@ -57,3 +61,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
+    urlpatterns += (static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

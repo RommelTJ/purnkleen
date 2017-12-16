@@ -1,3 +1,6 @@
+# Project specific
+/media-serve/profile/**
+
 # IntelliJ
 .idea
 *.iml
