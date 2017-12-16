@@ -41,7 +41,7 @@
                                             <div class="col-md-2 text-center">
                                                 <div class="player_image_container">
                                                     <a href="{% url 'employees:detail' employee.emp_no %}">
-                                                        <img src="{% static 'img/star_citizen_marine_400x400.jpg' %}"
+                                                        <img src="{% if employee.image.medium.url != None %}{{ employee.image.medium.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
                                                              alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
                                                              title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
                                                              width="100%"

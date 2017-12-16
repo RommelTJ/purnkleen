@@ -30,7 +30,12 @@
             <div class="row">
                 <div class="col-md-4 col-sm-3">
                     <figure class="team-img text-center">
-                        <img src="{% static 'img/star_citizen_marine_400x400.jpg' %}" class="img-responsive img-rounded" alt="Image">
+                        <img src="{% if employee.image.large.url != None %}{{ employee.image.large.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
+                             class="img-responsive img-rounded"
+                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                             width="100%"
+                             />
                     </figure>
                 </div>
 

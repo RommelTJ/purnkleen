@@ -1,6 +1,5 @@
 from django import forms
 from django_countries.widgets import CountrySelectWidget
-from django.utils.datetime_safe import datetime
 
 from .models import Employee
 
@@ -41,6 +40,7 @@ class EmployeeForm(forms.ModelForm):
             'first_name',
             'last_name',
             'callsign',
+            'image',
             'rsi_url',
             'primary_activity',
             'secondary_activity',
