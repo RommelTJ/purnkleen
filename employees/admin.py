@@ -13,6 +13,9 @@ class TypeFilter(admin.SimpleListFilter):
         return (
             ('MEM', 'Members'),
             ('AFF', 'Affiliates'),
+            ('PRE', 'President'),
+            ('SEC', 'Secretary'),
+            ('CFO', 'Chief Financial Officer'),
         )
 
     def queryset(self, request, queryset):

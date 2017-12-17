@@ -35,12 +35,18 @@ class Employee(models.Model):
         ('AFF', 'Affiliate'),
         ('RET', 'Retired'),
         ('KIA', 'Killed in action'),
+        ('PRE', 'President'),
+        ('SEC', 'Secretary'),
+        ('CFO', 'Chief Financial Officer'),
     )
     EMPLOYEE_DICT = {
         'MEM': 'Member-Owner',
         'AFF': 'Affiliate',
         'RET': 'Retired',
         'KIA': 'Killed in action',
+        'PRE': 'President',
+        'SEC': 'Secretary',
+        'CFO': 'Chief Financial Officer',
     }
 
     ACTIVITY_CHOICES = (
