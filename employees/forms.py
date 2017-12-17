@@ -68,7 +68,31 @@ class EmployeeForm(forms.ModelForm):
         widgets = {'country': CountrySelectWidget()}
 
 
-class EmployeeAdminForm(EmployeeForm):
+class EmployeeAdminForm(forms.ModelForm):
+    callsign = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'RedOne'}),
+        required=True,
+        label='Callsign'
+    )
+    rsi_url = forms.URLField(
+        widget=forms.URLInput(attrs={'placeholder': 'https://robertsspaceindustries.com/citizens/croberts68'}),
+        required=True,
+        label="RSI URL"
+    )
+    birth_date = forms.DateField(
+        widget=forms.SelectDateWidget(years=range(1950, 2030)),
+        help_text="Not required but used to wish you happy birthday."
+    )
+    image = forms.ImageField(
+        label="Profile Image",
+        widget=EmployeeImageFieldWidget(),
+        required=False,
+        help_text="Please upload a square 400x400 image."
+    )
+
+    def __str__(self):
+        return '%s %s' % (self.user.first_name, self.user.last_name)
+
     class Meta:
         model = Employee
         fields = (
