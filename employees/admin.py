@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from .models import Employee
-from .forms import EmployeeForm
+from .forms import EmployeeAdminForm
 
 
 class TypeFilter(admin.SimpleListFilter):
@@ -26,7 +26,7 @@ class TypeFilter(admin.SimpleListFilter):
 
 
 class EmployeeAdmin(admin.ModelAdmin):
-    form = EmployeeForm
+    form = EmployeeAdminForm
     search_fields = ('emp_no', 'first_name', 'last_name', 'hire_date',)
     list_display = ('image_thumbnail', 'emp_no', 'first_name', 'last_name', 'type', 'hire_date',)
     list_display_links = ('emp_no',)

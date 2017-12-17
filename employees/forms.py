@@ -66,3 +66,21 @@ class EmployeeForm(forms.ModelForm):
             'bio',
         )
         widgets = {'country': CountrySelectWidget()}
+
+
+class EmployeeAdminForm(EmployeeForm):
+    class Meta:
+        model = Employee
+        fields = (
+            'user',
+            'callsign',
+            'image',
+            'type',
+            'rsi_url',
+            'primary_activity',
+            'secondary_activity',
+            'country',
+            'birth_date',
+            'bio',
+        )
+        widgets = {'country': CountrySelectWidget()}
