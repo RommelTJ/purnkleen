@@ -32,7 +32,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
             self.object.user.first_name = form.data['first_name']
             self.object.user.last_name = form.data['last_name']
             self.object.user.save()
-            self.object.type = 'AFF'
+            self.object.type = 'AFF'  # All new employees start out as affiliates.
             self.object.save()
             return HttpResponseRedirect(reverse_lazy('employee:detail', kwargs={'pk': self.object.emp_no}))
         return render(request, self.template_name, {'form': form})
@@ -46,7 +46,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
         qs = Employee.objects.filter(
             user__exact=self.request.user
         ).filter(
-            type__in=["MEM","AFF"]
+            type__in=["MEM","AFF", "PRE", "SEC", "CFO"]
         ).first()
         return qs
 
@@ -100,13 +100,40 @@ class EmployeeListView(ListView):
     template_name = 'employees/employee_list.html'
     paginate_by = 20
     ordering = 'emp_no'
-    queryset = Employee.objects.filter(type__in=["MEM","AFF"])
+    queryset = Employee.objects.filter(type__in=["MEM", "AFF"])
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EmployeeListView, self).get_context_data()
         context['activity_dict'] = Employee.ACTIVITY_DICT
         context['employee_dict'] = Employee.EMPLOYEE_DICT
+        context['president'] = self.get_president()
+        context['secretary'] = self.get_secretary()
+        context['cfo'] = self.get_cfo()
         return context
+
+    def get_president(self):
+        qs = Employee.objects.filter(
+            user__exact=self.request.user
+        ).filter(
+            type="PRE"
+        ).first()  # There is only one President.
+        return qs
+
+    def get_secretary(self):
+        qs = Employee.objects.filter(
+            user__exact=self.request.user
+        ).filter(
+            type="SEC"
+        ).first()  # There is only one Secretary.
+        return qs
+
+    def get_cfo(self):
+        qs = Employee.objects.filter(
+            user__exact=self.request.user
+        ).filter(
+            type="CFO"
+        ).first()  # There is only one Chief Financial Officer.
+        return qs
 
 
 def employee_retire_view(request, **kwargs):
