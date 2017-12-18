@@ -2314,6 +2314,9 @@ KEY FRAME
 .player_actions {
     margin-top: 1em;
 }
+.officer-card {
+    width: 30%;
+}
 .category {
     text-transform: uppercase;
     color: black;

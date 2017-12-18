@@ -30,6 +30,125 @@
                 <h1 class="section-title text-uppercase">Current Members</h1>
             </div>
 
+            <div class="row">
+                {% if president %}
+                <div class="col-md-3 col-sm-6 col-md-offset-2 col-sm-offset-3">
+                    <div class="team-wrapper text-center">
+                        <div class="team-img">
+                            <a href="{% url 'employee:detail' president.emp_no %}">
+                                <img src="{% if president.image.large.url != None %}{{ president.image.large.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
+                                     alt="{{ president.user.first_name }} {{ president.user.last_name }}"
+                                     title="{{ president.user.first_name }} {{ president.user.last_name }}"
+                                     width="100%"
+                                     class="img-responsive">
+                            </a>
+                        </div><!-- /.team-img -->
+                        <div class="team-title">
+                            <h3><a href="{% url 'employee:detail' president.emp_no %}">{{ president.user.first_name }} {{ president.user.last_name }}</a></h3>
+                            <h4>"{{ president.callsign }}"</h4>
+                            <span>President</span>
+                        </div><!-- /.team-title -->
+                    </div><!-- /.team-wrapper -->
+                </div><!-- /.col-md-3 -->
+            {% else %} <!-- no president -->
+                <div class="col-md-3 col-sm-6 col-md-offset-2 col-sm-offset-3">
+                    <div class="team-wrapper text-center">
+                        <div class="team-img">
+                            <a href="#">
+                                <img src="/media/profile/star_citizen_marine_400x400.jpg"
+                                     alt="No President"
+                                     title="No President"
+                                     width="100%"
+                                     class="img-responsive">
+                            </a>
+                        </div><!-- /.team-img -->
+                        <div class="team-title">
+                            <h3><a href="#">Position Available</a></h3>
+                            <span>President</span>
+                        </div><!-- /.team-title -->
+                    </div><!-- /.team-wrapper -->
+                </div><!-- /.col-md-3 -->
+            {% endif %} <!-- end if president -->
+
+                {% if secretary %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team-wrapper text-center">
+                            <div class="team-img">
+                                <a href="{% url 'employee:detail' secretary.emp_no %}">
+                                    <img src="{% if secretary.image.large.url != None %}{{ secretary.image.large.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
+                                         alt="{{ secretary.user.first_name }} {{ secretary.user.last_name }}"
+                                         title="{{ secretary.user.first_name }} {{ secretary.user.last_name }}"
+                                         width="100%"
+                                         class="img-responsive">
+                                </a>
+                            </div><!-- /.team-img -->
+                            <div class="team-title">
+                                <h3><a href="{% url 'employee:detail' secretary.emp_no %}">{{ secretary.user.first_name }} {{ secretary.user.last_name }}</a></h3>
+                                <h4>"{{ secretary.callsign }}"</h4>
+                                <span>Secretary</span>
+                            </div><!-- /.team-title -->
+                        </div><!-- /.team-wrapper -->
+                    </div><!-- /.col-md-3 -->
+                {% else %} <!-- no secretary -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team-wrapper text-center">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="/media/profile/star_citizen_marine_400x400.jpg"
+                                         alt="No Secretary"
+                                         title="No Secretary"
+                                         width="100%"
+                                         class="img-responsive">
+                                </a>
+                            </div><!-- /.team-img -->
+                            <div class="team-title">
+                                <h3><a href="#">Position Available</a></h3>
+                                <span>Secretary</span>
+                            </div><!-- /.team-title -->
+                        </div><!-- /.team-wrapper -->
+                    </div><!-- /.col-md-3 -->
+                {% endif %} <!-- end if secretary -->
+
+                {% if cfo %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team-wrapper text-center">
+                            <div class="team-img">
+                                <a href="{% url 'employee:detail' cfo.emp_no %}">
+                                    <img src="{% if cfo.image.large.url != None %}{{ cfo.image.large.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
+                                         alt="{{ cfo.user.first_name }} {{ cfo.user.last_name }}"
+                                         title="{{ cfo.user.first_name }} {{ cfo.user.last_name }}"
+                                         width="100%"
+                                         class="img-responsive">
+                                </a>
+                            </div><!-- /.team-img -->
+                            <div class="team-title">
+                                <h3><a href="{% url 'employee:detail' cfo.emp_no %}">{{ cfo.user.first_name }} {{ cfo.user.last_name }}</a></h3>
+                                <h4>"{{ cfo.callsign }}"</h4>
+                                <span>Chief Financial Officer</span>
+                            </div><!-- /.team-title -->
+                        </div><!-- /.team-wrapper -->
+                    </div><!-- /.col-md-3 -->
+                {% else %} <!-- no cfo -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team-wrapper text-center">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="/media/profile/star_citizen_marine_400x400.jpg"
+                                         alt="No CFO"
+                                         title="No CFO"
+                                         width="100%"
+                                         class="img-responsive">
+                                </a>
+                            </div><!-- /.team-img -->
+                            <div class="team-title">
+                                <h3><a href="#">Position Available</a></h3>
+                                <span>Chief Financial Officer</span>
+                            </div><!-- /.team-title -->
+                        </div><!-- /.team-wrapper -->
+                    </div><!-- /.col-md-3 -->
+                {% endif %} <!-- end if cfo -->
+            </div> <!-- End Leadership row -->
+
             <div class="row featurette">
                 <div class="col-md-12">
                     <ul class="player_list">

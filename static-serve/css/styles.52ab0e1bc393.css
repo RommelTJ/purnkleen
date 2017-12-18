@@ -38,7 +38,7 @@
 
 
 /* Import css files */
-@import url("../fonts/flaticon/flaticon.css");
+@import url("../fonts/flaticon/flaticon.2ed7d08445be.css");
 
 /* Google Web Fonts */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
@@ -283,10 +283,10 @@ thead {
 
 /*Contact Form*/
 .contact-form-wrapper {
-    background: url('../img/vector-map.png') no-repeat center center;
+    background: url("../img/vector-map.3605069dee92.png") no-repeat center center;
 }
 .contact-form-bg {
-    background: url('../img/vector-map.png') no-repeat center center;
+    background: url("../img/vector-map.3605069dee92.png") no-repeat center center;
     background-size: contain;
 }
 
@@ -942,7 +942,7 @@ thead {
     left: 0;
     width: 250.625em;
     height: 100vh;
-    background: url('../img/banner/clouds.png') 0px 100% repeat-x;
+    background: url("../img/banner/clouds.aff4b8adf650.png") 0px 100% repeat-x;
     -webkit-animation: cloudLoop 80s linear infinite;
     animation: cloudLoop 80s linear infinite;
 }
@@ -1085,67 +1085,67 @@ thead {
 }
 
 .banner-1 {
-    background-image: url("../img/banner/banner-1.jpg");
+    background-image: url("../img/banner/banner-1.786847cb1d64.jpg");
 }
 .banner-2 {
-    background-image: url("../img/banner/banner-2.jpg");
+    background-image: url("../img/banner/banner-2.5482d8e75bcd.jpg");
 }
 .banner-3 {
-    background-image: url("../img/banner/banner-3.jpg");
+    background-image: url("../img/banner/banner-3.ae9a278d4343.jpg");
 }
 .banner-4 {
-    background-image: url("../img/banner/banner-4.jpg");
+    background-image: url("../img/banner/banner-4.ece8a81670dd.jpg");
 }
 .banner-5 {
-    background-image: url("../img/banner/banner-5.jpg");
+    background-image: url("../img/banner/banner-5.cb8a57eaa310.jpg");
 }
 .banner-6 {
-    background-image: url("../img/banner/banner-6.jpg");
+    background-image: url("../img/banner/banner-6.48f1ec0f01c0.jpg");
 }
 .banner-7 {
-    background-image: url("../img/banner/banner-7.jpg");
+    background-image: url("../img/banner/banner-7.6b64d56541c4.jpg");
 }
 .banner-8 {
-    background-image: url("../img/banner/banner-8.jpg");
+    background-image: url("../img/banner/banner-8.aad618254ee1.jpg");
 }
 .banner-9 {
-    background-image: url("../img/banner/banner-9.jpg");
+    background-image: url("../img/banner/banner-9.3e8dd1e4d9e7.jpg");
 }
 .banner-10 {
-    background-image: url("../img/banner/banner-10.jpg");
+    background-image: url("../img/banner/banner-10.7101247ef6c9.jpg");
 }
 .banner-11 {
-    background-image: url("../img/banner/banner-11.jpg");
+    background-image: url("../img/banner/banner-11.d486f0a5e694.jpg");
 }
 .banner-12 {
-    background-image: url("../img/banner/banner-12.jpg");
+    background-image: url("../img/banner/banner-12.0e74052077d7.jpg");
 }
 .banner-13 {
-    background-image: url("../img/banner/banner-13.jpg");
+    background-image: url("../img/banner/banner-13.cd277644dc93.jpg");
 }
 .banner-14 {
-    background-image: url("../img/banner/banner-14.jpg");
+    background-image: url("../img/banner/banner-14.a4d3cbb56b41.jpg");
 }
 .banner-14.overlay::before  {
     background-color: rgba(246, 72, 63, 0.9);
 }
 .banner-15 {
-    background-image: url("../img/banner/banner-15.jpg");
+    background-image: url("../img/banner/banner-15.e493b6e1ba17.jpg");
 }
 .banner-16 {
-    background-image: url("../img/banner/banner-16.jpg");
+    background-image: url("../img/banner/banner-16.6e833736522d.jpg");
 }
 .banner-17 {
-    background-image: url("../img/banner/banner-17.jpg");
+    background-image: url("../img/banner/banner-17.da6cfad1c204.jpg");
 }
 .banner-18 {
-    background-image: url("../img/banner/banner-18.jpg");
+    background-image: url("../img/banner/banner-18.893d75e65704.jpg");
 }
 .banner-19 {
-    background-image: url("../img/banner/banner-19.jpg");
+    background-image: url("../img/banner/banner-19.60b45ca97a05.jpg");
 }
 .banner-20 {
-    background-image: url("../img/banner/banner-20.jpg");
+    background-image: url("../img/banner/banner-20.f0a3b309d9e6.jpg");
 }
 
 @media screen and (max-width: 767px) {
@@ -2207,7 +2207,7 @@ KEY FRAME
 /* Custom Styles */
 @font-face {
     font-family: Furore;
-    src: url("../fonts/Furore.otf") format("opentype");
+    src: url("../fonts/Furore.95a623e2b834.otf") format("opentype");
 }
 .purnkleen-yellow-btn {
     background-color: #FFE411;
@@ -2221,7 +2221,7 @@ KEY FRAME
 @media (min-width: 768px) {
     .starfarer {
         background-repeat: no-repeat;
-        background-image: url('../img/starfarer.png');
+        background-image: url("../img/starfarer.adf692a598ea.png");
         height: 70vh;
         background-position: center 50%;
         background-size: 90% auto;
