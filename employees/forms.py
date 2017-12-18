@@ -57,6 +57,7 @@ class EmployeeForm(forms.ModelForm):
             'first_name',
             'last_name',
             'callsign',
+            'type',
             'image',
             'rsi_url',
             'primary_activity',
@@ -65,7 +66,10 @@ class EmployeeForm(forms.ModelForm):
             'birth_date',
             'bio',
         )
-        widgets = {'country': CountrySelectWidget()}
+        widgets = {
+            'country': CountrySelectWidget(),
+            'type': forms.HiddenInput()
+        }
 
 
 class EmployeeAdminForm(forms.ModelForm):

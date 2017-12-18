@@ -9,7 +9,7 @@ class UserOwnerMixin(object):
         qs = qs.filter(
             user__exact=self.request.user
         ).filter(
-            type__in=["MEM","AFF"]
+            type__in=["MEM","AFF", "PRE", "SEC", "CFO"]
         )
         return qs
 
