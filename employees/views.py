@@ -98,7 +98,7 @@ class EmployeeDetailView(DetailView):
 class EmployeeListView(ListView):
     model = Employee
     template_name = 'employees/employee_list.html'
-    paginate_by = 20
+    paginate_by = 10
     ordering = 'emp_no'
     queryset = Employee.objects.filter(type__in=["MEM", "AFF"])
 
@@ -112,27 +112,15 @@ class EmployeeListView(ListView):
         return context
 
     def get_president(self):
-        qs = Employee.objects.filter(
-            user__exact=self.request.user
-        ).filter(
-            type="PRE"
-        ).first()  # There is only one President.
+        qs = Employee.objects.filter(type="PRE").first()  # There is only one President.
         return qs
 
     def get_secretary(self):
-        qs = Employee.objects.filter(
-            user__exact=self.request.user
-        ).filter(
-            type="SEC"
-        ).first()  # There is only one Secretary.
+        qs = Employee.objects.filter(type="SEC").first()  # There is only one Secretary.
         return qs
 
     def get_cfo(self):
-        qs = Employee.objects.filter(
-            user__exact=self.request.user
-        ).filter(
-            type="CFO"
-        ).first()  # There is only one Chief Financial Officer.
+        qs = Employee.objects.filter(type="CFO").first()  # There is only one Chief Financial Officer.
         return qs
 
 
