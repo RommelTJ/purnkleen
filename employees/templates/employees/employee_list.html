@@ -218,14 +218,16 @@
                     </ul>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <br/>
-                        <a href="{% url 'employee:create' %}">
-                            <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>
-                        </a>
+                {% if no_account %}
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <br/>
+                            <a href="{% url 'employee:create' %}">
+                                <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
                 {% if is_paginated %}
                     <ul class="pagination center-align">

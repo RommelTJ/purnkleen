@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import AnonymousUser
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -109,6 +110,7 @@ class EmployeeListView(ListView):
         context['president'] = self.get_president()
         context['secretary'] = self.get_secretary()
         context['cfo'] = self.get_cfo()
+        context['no_account'] = self.no_account()
         return context
 
     def get_president(self):
@@ -122,6 +124,20 @@ class EmployeeListView(ListView):
     def get_cfo(self):
         qs = Employee.objects.filter(type="CFO").first()  # There is only one Chief Financial Officer.
         return qs
+
+    def no_account(self):
+        if not self.request.user.is_authenticated:
+            return True
+        else:
+            qs = Employee.objects.filter(
+                user__exact=self.request.user
+            ).filter(
+                type__in=["MEM","AFF", "PRE", "SEC", "CFO"]
+            )
+            if qs.count() == 0:
+                return True
+            else:
+                return False
 
 
 def employee_retire_view(request, **kwargs):
