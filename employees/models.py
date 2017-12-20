@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.db.models import Max
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.datetime_safe import datetime
 from django_countries.fields import CountryField
@@ -100,3 +101,5 @@ class Employee(models.Model):
     def __str__(self):
         return "%s %s" % (self.user.first_name, self.user.last_name)
 
+    def get_absolute_url(self):
+        return reverse("employee:detail", kwargs={"pk":self.emp_no})
