@@ -44,3 +44,13 @@ class TestEmployee(TestCase):
         self.assertTrue(obj.secondary_activity == 'TRD')
         self.assertTrue(obj.bio == '')
         self.assertIsNotNone(obj.image)
+
+    def test_employee_url(self):
+        obj = Employee.objects.create(
+            emp_no=generate_next_emp_no(),
+            user=User.objects.first(),
+            callsign='Boomer',
+            country='US'
+        )
+        absolute_url = reverse('employee:detail', kwargs={'pk': obj.emp_no})
+        self.assertEqual(obj.get_absolute_url(), absolute_url)
