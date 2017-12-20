@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import AnonymousUser
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -101,7 +102,20 @@ class EmployeeListView(ListView):
     template_name = 'employees/employee_list.html'
     paginate_by = 10
     ordering = 'emp_no'
-    queryset = Employee.objects.filter(type__in=["MEM", "AFF"])
+
+    def get_queryset(self, *args, **kwargs):
+        qs = Employee.objects.filter(type__in=["MEM", "AFF"])
+        query = self.request.GET.get("q", None)
+        if query is not None:
+            qs = qs.filter(
+                Q(user__last_name__icontains=query) |
+                Q(user__first_name__icontains=query) |
+                Q(callsign__icontains=query) |
+                Q(type__icontains=query) |
+                Q(primary_activity__icontains=query) |
+                Q(secondary_activity__icontains=query)
+            )
+        return qs
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EmployeeListView, self).get_context_data()
