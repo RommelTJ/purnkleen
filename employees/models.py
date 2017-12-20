@@ -80,7 +80,6 @@ class Employee(models.Model):
         'TRN': 'Transport',
     }
 
-
     emp_no = models.IntegerField(primary_key=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     type = models.CharField(max_length=3, choices=EMPLOYEE_TYPES, default='AFF')
