@@ -55,8 +55,6 @@ urlpatterns = [
     ####################
     # End Static pages #
     ####################
-
-    # url(r'^join/$', views.join, name='join'),
 ]
 
 if settings.DEBUG:
