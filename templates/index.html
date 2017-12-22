@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Company{% endblock %}
+
+{% block container %}
+
+    <!-- Hero Section -->
+    <section class="banner-4 parallax-bg bg-fixed overlay dark-4 fullscreen-banner valign-wrapper" data-stellar-background-ratio="0.5">
+        <div class="valign-cell">
+            <div class="container padding-top-110">
+                <div class="row">
+                    <div class="col-md-7 starfarer">
+                        <h1 class="intro-title text-uppercase white-text mb-15 space-font">Pur'N'Kleen</h1>
+                        <p class="lead text-bold white-text space-font">Collaborative supply chain solutions to increase your competitive advantage</p>
+                    </div><!-- col-md-6 -->
+                </div><!-- row -->
+            </div><!-- /.container -->
+        </div><!-- /.valign-cell -->
+    </section>
+    <!-- Hero Section End -->
+
+    <section class="section-padding bg-fixed overlay light-9">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h2 class="section-title text-uppercase">What We Do</h2>
+                <p class="section-sub">We are in the business of providing Star Citizen organizations with a competitive edge by solving their maintenance and supply chain needs through approaches based on deep industry knowledge.</p>
+            </div>
+
+            <div class="row equal-height-row">
+
+                <div class="col-md-4 mb-30">
+                    <a class="feature-link" href="{% url 'giveaway' %}">
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">thumb_up</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Free P-72 Archimedes LTI</h2>
+                                <p>PNK is sponsoring an Interstellar Diplomacy "Diplomatic question of the month". Click for more details.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </a>
+                </div><!-- /.col-md-4 -->
+
+
+                <div class="col-md-4 mb-30">
+                    <a class="feature-link" href="{% url 'fuel-services' %}">
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">local_gas_station</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Fuel Services</h2>
+                                <p>Our line of fuel products and services are designed to give pros the performance they need to get their jobs done right.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </a>
+                </div><!-- /.col-md-4 -->
+
+
+                <div class="col-md-4 mb-30">
+                    <a class="feature-link" href="{% url 'maintenance-and-repair' %}">
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">build</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Maintenance and Repair Services</h2>
+                                <p>Let us take care of the regular maintenance for your ships. Our professional mechanics can fix any problem.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </a>
+                </div><!-- /.col-md-4 -->
+
+
+                <div class="col-md-4">
+                    <a class="feature-link" href="{% url 'transportation' %}">
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">airport_shuttle</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Transportation Services</h2>
+                                <p>In the vast expanse, Pur'N'Kleen makes shipping easy. Choose between our Priority or Economy services.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </a>
+                </div><!-- /.col-md-4 -->
+
+
+                <div class="col-md-4">
+{#                    <a class="feature-link" href="{% url 'fleet-view' %}">#}
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">airplanemode_active</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Fleet Viewer</h2>
+                                <p>Coming soon: A useful tool to help you with managing all your ships, or to view all the ships in your org.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+{#                    </a>#}
+                </div><!-- /.col-md-4 -->
+
+
+                <div class="col-md-4">
+{#                    <a class="feature-link" href="{% url 'mission-planner' %}">#}
+                        <div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
+                            <div class="icon mb-30">
+                                <i class="material-icons dark-icon">playlist_add_check</i>
+                            </div>
+                            <div class="desc">
+                                <h2>Mission Planner</h2>
+                                <p>Coming soon: A useful tool to help you organize, plan, and debrief missions for yourself or for your org.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+{#                    </a>#}
+                </div><!-- /.col-md-4 -->
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+    </section>
+
+{% endblock %}

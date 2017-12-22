@@ -1,0 +1,58 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Transportation Services{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Transportation Services</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Transportation Services</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Pur'N'Kleen Transportation Services</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Coming with Star Citizen 3.0</h1>
+                    <p class="lead">
+                        The Star Citizen universe is a vast expanse of systems and planets, but Pur'N'Kleen makes shipping
+                        easy. We offer two reliable services:
+
+                    <dl class="dl-horizontal lead">
+                        <dt>Pur'N'Kleen Priority</dt>
+                        <dd>If speed is critical, this service provides fast-transit delivery of time-sensitive freight to meet your supply chain needs.</dd>
+                        <dt>Pur'N'Kleen Economy</dt>
+                        <dd>If you can trade time for savings, this services provides reliable shipments at a lower price.</dd>
+                    </dl>
+                    </p>
+
+                    <p class="lead">
+                        Pur'N'Kleen also offers logistics support for your Organization. Take your business across star
+                        systems while leveraging our reliable service. Please don't hesitate to
+                        <a href="https://discord.gg/Q9WHD3J">contact us</a> with your shipping and supply chain needs.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

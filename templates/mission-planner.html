@@ -1,0 +1,38 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Mission Planner{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Mission Planner</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Mission Planner</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Mission Planner</h1>
+                <p class="section-sub">
+                    Coming soon: A useful tool to help you organize, plan, and debrief missions for yourself or for your org.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="modal fade" id="kiaModal" tabindex="-1" role="dialog" aria-labelledby="employeeKIALabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="employeeKIALabel">KIA Employee</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to mark this employee as Killed-In-Action? You will have to register a new character.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default blue light-text" data-dismiss="modal">Close</button>
+                <a href="{% url 'employee:kia' employee.emp_no %}">
+                    <button type="button" class="btn btn-primary materialize-red light-text">KIA</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

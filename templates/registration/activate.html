@@ -1,0 +1,41 @@
+{% extends "base2.html" %}
+
+
+{% block title %}Account activation error{% endblock %}
+
+{% block content %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Account Activation Error</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Account Activation Error</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Account Activation Error</h1>
+                <p class="section-sub">
+                    The activation key <strong>{{ activation_key }}</strong> is invalid or expired.
+                </p>
+                <div class="btn-group padding-top-50">
+                    <a class="btn btn-lg yellow dark-text" href="{% url 'index' %}">Home</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+	

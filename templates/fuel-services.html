@@ -1,0 +1,51 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Fuel Services{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Fuel Services</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Fuel Services</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Pur'N'Kleen Fuel Services</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Coming with Star Citizen 3.1</h1>
+                    <p class="lead">
+                        Pur'N'Kleen plans to release a suite of fuel products marketed towards all kinds of working
+                        professionals, ranging from the Aurora pilot to an Orion crew. Stay tuned to hear more.
+                    </p>
+
+                    <p class="lead">
+                        Pur'N'Kleen also offers logistics support for your Organization, ranging from single
+                        refueling for the stranded pilot to yearly contracts and fuel price hedging. Please don't hesitate
+                        to <a href="https://discord.gg/Q9WHD3J">contact us</a> with your fuel needs.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

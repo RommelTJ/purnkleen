@@ -1,0 +1,117 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+{% load employee_extras %}
+
+{% block title %}Pur'N'Kleen Profile{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">{{ employee.user.first_name }} {{ employee.user.last_name }}</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'employee:list' %}">Our Team</a></li>
+                        <li class="active">Profile Page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-3">
+                    <figure class="team-img text-center">
+                        <img src="{% if employee.image.large.url != None %}{{ employee.image.large.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
+                             class="img-responsive img-rounded"
+                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
+                             width="100%"
+                             />
+                    </figure>
+                </div>
+
+                <div class="col-md-8 col-sm-9">
+                    <div class="team-intro">
+                        <div>
+                            <div class="player_name player_name_big">
+                                <img src="{% static 'img/flags/svg/'|addstr:employee.country|addstr:'.svg'  %}" height="30">
+                                {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }} <br/>
+                                <span class="label label-default preferred_activity_large">
+                                    {{ activity_dict|get_value:employee.primary_activity }}
+                                </span>
+                                <span class="label label-default preferred_activity_large">
+                                    {{ activity_dict|get_value:employee.secondary_activity }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="player_bio">
+                                    {{ employee.bio }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="player_stat">
+                            <span class="player_stat_title">Type: </span>
+                            <span class="player_stat_value">{{ employee_dict|get_value:employee.type }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">Employee: </span>
+                            <span class="player_stat_value">#{{ employee.emp_no }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">Hire date: </span>
+                            <span class="player_stat_value">{{ employee.hire_date|date:"d M Y" }}</span>
+                        </div>
+
+                        <div class="player_stat">
+                            <span class="player_stat_title">RSI Profile: </span>
+                            <span class="player_stat_value"><a href="{{ employee.rsi_url }}" target="_blank">Profile</a></span>
+                        </div>
+                    </div>
+
+                    {% if is_owner %}
+                    <div class="player_actions">
+
+                        <p>
+                            <a href="{% url 'employee:update' employee.emp_no %}">
+                                <button type="button" class="btn btn-primary btn-lg blue light-text waves-effect waves-light">Update</button>
+                            </a>
+                            <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light" data-toggle="modal" data-target="#retireModal">
+                                Retire
+                            </button>
+                            <button type="button" class="btn btn-primary btn-lg materialize-red light-text waves-effect waves-light" data-toggle="modal" data-target="#kiaModal">
+                                KIA
+                            </button>
+                        </p>
+                    </div>
+                    {% endif %}
+
+                </div> <!-- col-md-8 -->
+
+            </div><!-- row -->
+        </div> <!-- container -->
+
+        {% include 'employees/modals/employee_retire_modal.html' %}
+        {% include 'employees/modals/employee_kia_modal.html' %}
+
+    </section>
+
+{% endblock %}

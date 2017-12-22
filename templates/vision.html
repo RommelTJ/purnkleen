@@ -1,0 +1,47 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Pur'N'Kleen Vision{% endblock %}
+
+{% block container %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Our Vision</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Our Vision</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Our Vision</h1>
+            </div>
+
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h1>Vision Statement</h1>
+                    <p class="lead">
+                        Our vision is to deliver unique, high value and easy-to-use solutions for a wide variety of
+                        maintenance and supply chain needs of Star Citizen organizations. We will become the premier and
+                        sole organizational provider of these services in our area of operations through strategic
+                        partnerships with our allies.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

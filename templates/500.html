@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}500{% endblock %}
+
+{% block container %}
+
+    <section class="fullscreen-banner valign-wrapper error-wrapper-alt">
+        <div class="valign-cell">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="mb-30">500</h1>
+                    <span class="error-sub">OOPS! SERVER ERROR</span>
+
+                    <p>Sorry, but we messed up. Please inform us of the error.</p>
+
+                    <a class="btn btn-lg red waves-effect waves-light" href="https://discord.gg/Q9WHD3J">Report Bug</a>
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.valign-cell -->
+    </section>
+
+{% endblock %}

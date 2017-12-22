@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+
+{% block title %}Account activation complete{% endblock %}
+
+{% block content %}
+
+    <!--page title start-->
+    <section class="page-title ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-bold">Account Activation Complete</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Account Activation Complete</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="text-center mb-80">
+                <h1 class="section-title text-uppercase">Account Activation Complete</h1>
+                <p class="section-sub">
+                    You can now sign in to the website.
+                </p>
+                <div class="btn-group padding-top-50">
+                    <a class="btn btn-lg green dark-text" href="{% url 'auth_login' %}">Sign in</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
