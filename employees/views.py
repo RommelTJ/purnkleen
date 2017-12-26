@@ -1,14 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
+import logging
 
 from .forms import EmployeeForm
 from .mixins import UserOwnerMixin
 from .models import Employee, generate_next_emp_no
+
+logger = logging.getLogger(__name__)
 
 
 class EmployeeCreateView(LoginRequiredMixin, CreateView):

@@ -8,6 +8,9 @@ from django.utils import timezone
 from django.utils.datetime_safe import datetime
 from django_countries.fields import CountryField
 from stdimage import StdImageField
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def generate_next_emp_no():
