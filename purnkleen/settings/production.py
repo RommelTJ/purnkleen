@@ -17,7 +17,7 @@ from configparser import RawConfigParser
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 config = RawConfigParser()
-config.read(os.path.join(BASE_DIR, 'config', 'settings_local.ini'))
+config.read(os.path.join(BASE_DIR, 'config', 'settings_production.ini'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -26,7 +26,7 @@ config.read(os.path.join(BASE_DIR, 'config', 'settings_local.ini'))
 SECRET_KEY = config.get('key', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.purnkleen.com', 'purnkleen.com', '127.0.0.1', 'localhost']
 
