@@ -43,7 +43,7 @@
                     <div class="team-intro">
                         <div>
                             <div class="player_name player_name_big">
-                                <img src="{% static 'img/flags/svg/'|addstr:employee.country|addstr:'.svg'  %}" height="30">
+                                <img src="{% static 'img/flags/svg/'|addstr:employee.country|lower|addstr:'.svg'  %}" height="30">
                                 {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }} <br/>
                                 <span class="label label-default preferred_activity_large">
                                     {{ activity_dict|get_value:employee.primary_activity }}
