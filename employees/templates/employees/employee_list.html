@@ -177,7 +177,7 @@
                                             <div class="col-md-10">
                                                 <div class="player_info">
                                                     <div class="player_name">
-                                                        <img src="{% static 'img/flags/svg/'|addstr:employee.country|addstr:'.svg'  %}" height="20">
+                                                        <img src="{% static 'img/flags/svg/'|addstr:employee.country|lower|addstr:'.svg'  %}" height="20">
                                                         {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }}
                                                         <br/>
                                                         <span class="label label-default preferred_activity_small">
