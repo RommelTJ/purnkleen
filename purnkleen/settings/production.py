@@ -27,8 +27,10 @@ SECRET_KEY = config.get('key', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['www.purnkleen.com', 'purnkleen.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['www.purnkleen.com', 'purnkleen.com']
 
 EMAIL_HOST = config.get('email', 'EMAIL_HOST')
 EMAIL_HOST_USER = config.get('email', 'EMAIL_HOST_USER')
@@ -149,9 +151,10 @@ STATICFILES_DIRS = [
     # Will not be served, long-term storage.
     os.path.join(BASE_DIR, "static-storage"),
 ]
+
 # Will be served.
-STATIC_ROOT = os.path.join(BASE_DIR, "static-serve")
-MEDIA_ROOT = os.path.join(BASE_DIR, "media-serve")
+STATIC_ROOT = '/home/romri/webapps/purnkleen_static_root/'
+MEDIA_ROOT = '/home/romri/webapps/purnkleen_media_root/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Django Registration settings
