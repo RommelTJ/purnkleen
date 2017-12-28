@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^$', views.home, name='index'),
     url(r'^team/', include('employees.urls', namespace='employee')),
     url(r'^api/', include('accounts.api.urls', namespace='profiles-api')),
+    url(r'^api/employee/', include('employees.api.urls', namespace='employee-api')),
     url(r'^', include('django.contrib.auth.urls')),
     # We edited the registrations library manually to add this change:
     # https://github.com/ubernostrum/django-registration/pull/111
