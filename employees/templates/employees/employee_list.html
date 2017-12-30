@@ -5,62 +5,6 @@
 
 {% block title %}Pur'N'Kleen Team{% endblock %}
 
-<script>
-
-    $(document).ready(function(){
-        loadEmployeeContainer("employee-container");
-    });
-
-    function getParameterByName(name, url) {
-        if (!url) {
-            url = window.location.href;
-        }
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    function loadEmployeeContainer(employeeContainerID) {
-        var query = getParameterByName('q');
-        var employeeList = [];
-
-        var employeeContainer;
-        if (employeeContainerID) {
-            employeeContainer = $("#" + employeeContainerID);
-        } else {
-            employeeContainer = $("#employee-container")
-        }
-        var initialURL = employeeContainer.attr("data-url") || "/api/employee/";
-
-        function fetchEmployees(url){
-            var fecthUrl;
-            if (!url) {
-                fecthUrl = initialURL;
-            } else {
-                fecthUrl = url;
-            }
-            $.ajax({
-                url: fecthUrl,
-                data: {
-                    "q": query
-                },
-                method: "GET",
-                success: function(data){
-                    employeeList = data.results;
-                },
-                error: function(data){
-                    console.log("error");
-                }
-            });
-        }
-
-        fetchEmployees();
-    }
-</script>
-
 {% block container %}
 
     <!--page title start-->
@@ -317,4 +261,63 @@
     </section>
 
 
+{% endblock %}
+
+{% block script %}
+    <script>
+
+        $(document).ready(function(){
+            loadEmployeeContainer("employee-container");
+        });
+
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function loadEmployeeContainer(employeeContainerID) {
+            var query = getParameterByName('q');
+            var employeeList = [];
+
+            var employeeContainer;
+            if (employeeContainerID) {
+                employeeContainer = $("#" + employeeContainerID);
+            } else {
+                employeeContainer = $("#employee-container")
+            }
+            var initialURL = employeeContainer.attr("data-url") || "/api/employee/";
+
+            function fetchEmployees(url){
+                var fetchUrl;
+                if (!url) {
+                    fetchUrl = initialURL;
+                } else {
+                    fetchUrl = url;
+                }
+                $.ajax({
+                    url: fetchUrl,
+                    data: {
+                        "q": query
+                    },
+                    method: "GET",
+                    success: function(data){
+                        employeeList = data.results;
+                        console.log("employeeList: "+employeeList.length);
+                    },
+                    error: function(data){
+                        console.log("error");
+                    }
+                });
+            }
+
+            fetchEmployees();
+        }
+    </script>
 {% endblock %}

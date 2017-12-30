@@ -132,7 +132,6 @@
 </header>
 <!--header end-->
 
-
 {% block body %}
     {% block container %}{% endblock %}
     {% block content %}{% endblock %}
@@ -195,6 +194,7 @@
 <script src="{% static 'flexSlider/jquery.flexslider-min.js' %}"></script>
 <script src="{% static 'magnific-popup/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/scripts.js' %}"></script>
+{% block script %}{% endblock %}
 </body>
 
 </html>
