@@ -41,8 +41,11 @@ class StdImageFieldSerializer(serializers.ImageField):
                         return_object[key] = super(StdImageFieldSerializer, self).to_representation(field_obj)
 
         # Also include the original (if possible)
-        if hasattr(obj, 'url'):
-            return_object['original'] = super(StdImageFieldSerializer, self).to_representation(obj)
+        try:
+            if hasattr(obj, 'url'):
+                return_object['original'] = super(StdImageFieldSerializer, self).to_representation(obj)
+        except ValueError:
+            pass
 
         return return_object
 
