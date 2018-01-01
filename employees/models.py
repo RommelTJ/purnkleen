@@ -108,4 +108,4 @@ class Employee(models.Model):
         return reverse("employee:detail", kwargs={"pk":self.emp_no})
 
     class Meta:
-        ordering = ["emp_no"]
+        ordering = ["-emp_no"]
