@@ -41,15 +41,30 @@ class StdImageFieldSerializer(serializers.ImageField):
                         return_object[key] = super(StdImageFieldSerializer, self).to_representation(field_obj)
 
         # Also include the original (if possible)
-        if hasattr(obj, 'url'):
-            return_object['original'] = super(StdImageFieldSerializer, self).to_representation(obj)
+        try:
+            if hasattr(obj, 'url'):
+                return_object['original'] = super(StdImageFieldSerializer, self).to_representation(obj)
+        except ValueError:
+            pass
 
         return return_object
 
 
 class EmployeeModelSerializer(serializers.ModelSerializer):
     user = UserDisplaySerializer(read_only=True)
+    primary_activity = serializers.SerializerMethodField()
+    secondary_activity = serializers.SerializerMethodField()
+    type = serializers.SerializerMethodField()
     image = StdImageFieldSerializer()
+
+    def get_primary_activity(self, obj):
+        return Employee.ACTIVITY_DICT[obj.primary_activity]
+
+    def get_secondary_activity(self, obj):
+        return Employee.ACTIVITY_DICT[obj.secondary_activity]
+
+    def get_type(self, obj):
+        return Employee.EMPLOYEE_DICT[obj.type]
 
     class Meta:
         model = Employee

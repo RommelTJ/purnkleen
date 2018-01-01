@@ -106,3 +106,6 @@ class Employee(models.Model):
 
     def get_absolute_url(self):
         return reverse("employee:detail", kwargs={"pk":self.emp_no})
+
+    class Meta:
+        ordering = ["-emp_no"]

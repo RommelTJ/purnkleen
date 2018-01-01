@@ -132,7 +132,6 @@
 </header>
 <!--header end-->
 
-
 {% block body %}
     {% block container %}{% endblock %}
     {% block content %}{% endblock %}
@@ -194,7 +193,10 @@
 <script src="{% static 'owl.carousel/owl.carousel.min.js' %}"></script>
 <script src="{% static 'flexSlider/jquery.flexslider-min.js' %}"></script>
 <script src="{% static 'magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/moment.js' %}"></script>
+<script src="{% static 'js/moment-timezone-with-data-2010-2020.js' %}"></script>
 <script src="{% static 'js/scripts.js' %}"></script>
+{% block script %}{% endblock %}
 </body>
 
 </html>

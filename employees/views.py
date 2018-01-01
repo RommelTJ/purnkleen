@@ -102,11 +102,9 @@ class EmployeeDetailView(DetailView):
 class EmployeeListView(ListView):
     model = Employee
     template_name = 'employees/employee_list.html'
-    paginate_by = 10
-    ordering = 'emp_no'
 
     def get_queryset(self, *args, **kwargs):
-        qs = Employee.objects.filter(type__in=["MEM", "AFF"])
+        qs = Employee.objects.exclude(type__in=["RET", "KIA"])
         query = self.request.GET.get("q", None)
         if query is not None:
             qs = qs.filter(
@@ -148,7 +146,7 @@ class EmployeeListView(ListView):
             qs = Employee.objects.filter(
                 user__exact=self.request.user
             ).filter(
-                type__in=["MEM","AFF", "PRE", "SEC", "CFO"]
+                type__in=["MEM", "AFF", "PRE", "SEC", "CFO"]
             )
             if qs.count() == 0:
                 return True
