@@ -52,7 +52,19 @@ class StdImageFieldSerializer(serializers.ImageField):
 
 class EmployeeModelSerializer(serializers.ModelSerializer):
     user = UserDisplaySerializer(read_only=True)
+    primary_activity = serializers.SerializerMethodField()
+    secondary_activity = serializers.SerializerMethodField()
+    type = serializers.SerializerMethodField()
     image = StdImageFieldSerializer()
+
+    def get_primary_activity(self, obj):
+        return Employee.ACTIVITY_DICT[obj.primary_activity]
+
+    def get_secondary_activity(self, obj):
+        return Employee.ACTIVITY_DICT[obj.secondary_activity]
+
+    def get_type(self, obj):
+        return Employee.EMPLOYEE_DICT[obj.type]
 
     class Meta:
         model = Employee
