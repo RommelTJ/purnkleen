@@ -8,6 +8,7 @@
 {% block container %}
 
     <!--page title start-->
+    <!--suppress HtmlUnknownTarget -->
     <section class="page-title ptb-70">
         <div class="container">
             <div class="row">
@@ -161,101 +162,119 @@
                 </div>
             </div> <!-- End Search -->
 
-            <div id='employee-container' data-url='/api/employee/'></div>
-
+            <!-- Employees -->
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="player_list">
-                        {% for employee in employee_list %}
-                            <li class="player_row {{forloop.counter|divisibleby:2|yesno:"even,odd"}}">
-                                <div class="row">
-                                    <div class="player_info_column col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-2 text-center">
-                                                <div class="player_image_container">
-                                                    <a href="{% url 'employees:detail' employee.emp_no %}">
-                                                        <img src="{% if employee.image.medium.url != None %}{{ employee.image.medium.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"
-                                                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"
-                                                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"
-                                                             width="100%"
-                                                             class="img-rounded">
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                <div class="player_info">
-                                                    <div class="player_name">
-                                                        <img src="{% static 'img/flags/svg/'|addstr:employee.country|lower|addstr:'.svg'  %}" height="20">
-                                                        {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }}
-                                                        <br/>
-                                                        <span class="label label-default preferred_activity_small">
-                                                            {{ activity_dict|get_value:employee.primary_activity }}
-                                                        </span>
-                                                        <span class="label label-default preferred_activity_small">
-                                                            {{ activity_dict|get_value:employee.secondary_activity }}
-                                                        </span>
-                                                    </div>
-
-                                                    <div>
-                                                        <div class="player_stat">
-                                                            <span class="player_stat_title">Status:</span>
-                                                            <span>{{ employee_dict|get_value:employee.type }}</span>
-                                                        </div>
-
-                                                        <div class="player_stat">
-                                                            <span class="player_stat_title">Hire Date:</span>
-                                                            <span>{{ employee.hire_date|date:"d M Y" }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="player_actions_column col-md-3 text-center">
-                                        <div>
-                                            <a href="{% url 'employee:detail' employee.emp_no %}">
-                                                <button type="button" class="btn btn-primary btn-lg grey light-text waves-effect waves-light">View more</button>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    <ul id='employee-container' data-url='/api/employee/' class="player_list"></ul>
                 </div>
+            </div><!-- End employees -->
+            <a href='#' id='loadmore'>Load More Members</a>
 
-                {% if no_account %}
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <br/>
-                            <a href="{% url 'employee:create' %}">
-                                <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>
-                            </a>
-                        </div>
+            <!-- Join button -->
+            {% if no_account %}
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br/>
+                        <a href="{% url 'employee:create' %}">
+                            <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>
+                        </a>
                     </div>
-                {% endif %}
+                </div>
+            {% endif %} <!-- End Join button -->
 
-                {% if is_paginated %}
-                    <ul class="pagination center-align">
-                        {% if page_obj.has_previous %}
-                            <li class="waves-effect">
-                                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                            </li>
-                        {% endif %}
-                        <li class="waves-effect">
-                            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-                        </li>
-                        {% if page_obj.has_next %}
-                            <li class="waves-effect">
-                                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-            </div>
+{#            <div class="row">#}
+{#                <div class="col-md-12">#}
+{#                    <ul class="player_list">#}
+{#                        {% for employee in employee_list %}#}
+{#                            <li class="player_row {{forloop.counter|divisibleby:2|yesno:"even,odd"}}">#}
+{#                                <div class="row">#}
+{#                                    <div class="player_info_column col-md-9">#}
+{#                                        <div class="row">#}
+{#                                            <div class="col-md-2 text-center">#}
+{#                                                <div class="player_image_container">#}
+{#                                                    <a href="{% url 'employees:detail' employee.emp_no %}">#}
+{#                                                        <img src="{% if employee.image.medium.url != None %}{{ employee.image.medium.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"#}
+{#                                                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"#}
+{#                                                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"#}
+{#                                                             width="100%"#}
+{#                                                             class="img-rounded">#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{##}
+{#                                            <div class="col-md-10">#}
+{#                                                <div class="player_info">#}
+{#                                                    <div class="player_name">#}
+{#                                                        <img src="{% static 'img/flags/svg/'|addstr:employee.country|lower|addstr:'.svg'  %}" height="20">#}
+{#                                                        {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }}#}
+{#                                                        <br/>#}
+{#                                                        <span class="label label-default preferred_activity_small">#}
+{#                                                            {{ activity_dict|get_value:employee.primary_activity }}#}
+{#                                                        </span>#}
+{#                                                        <span class="label label-default preferred_activity_small">#}
+{#                                                            {{ activity_dict|get_value:employee.secondary_activity }}#}
+{#                                                        </span>#}
+{#                                                    </div>#}
+{##}
+{#                                                    <div>#}
+{#                                                        <div class="player_stat">#}
+{#                                                            <span class="player_stat_title">Status:</span>#}
+{#                                                            <span>{{ employee_dict|get_value:employee.type }}</span>#}
+{#                                                        </div>#}
+{##}
+{#                                                        <div class="player_stat">#}
+{#                                                            <span class="player_stat_title">Hire Date:</span>#}
+{#                                                            <span>{{ employee.hire_date|date:"d M Y" }}</span>#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                    <div class="player_actions_column col-md-3 text-center">#}
+{#                                        <div>#}
+{#                                            <a href="{% url 'employee:detail' employee.emp_no %}">#}
+{#                                                <button type="button" class="btn btn-primary btn-lg grey light-text waves-effect waves-light">View more</button>#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{##}
+{#                {% if no_account %}#}
+{#                    <div class="row">#}
+{#                        <div class="col-md-12 text-center">#}
+{#                            <br/>#}
+{#                            <a href="{% url 'employee:create' %}">#}
+{#                                <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{##}
+{#                {% if is_paginated %}#}
+{#                    <ul class="pagination center-align">#}
+{#                        {% if page_obj.has_previous %}#}
+{#                            <li class="waves-effect">#}
+{#                                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>#}
+{#                            </li>#}
+{#                        {% endif %}#}
+{#                        <li class="waves-effect">#}
+{#                            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>#}
+{#                        </li>#}
+{#                        {% if page_obj.has_next %}#}
+{#                            <li class="waves-effect">#}
+{#                                <a href="?page={{ page_obj.next_page_number }}">Next</a>#}
+{#                            </li>#}
+{#                        {% endif %}#}
+{#                    </ul>#}
+{#                {% endif %}#}
+{#            </div>#}
 
         </div>
     </section>
@@ -285,6 +304,7 @@
         function loadEmployeeContainer(employeeContainerID) {
             var query = getParameterByName('q');
             var employeeList = [];
+            var nextEmployeesUrl;
 
             var employeeContainer;
             if (employeeContainerID) {
@@ -293,6 +313,107 @@
                 employeeContainer = $("#employee-container")
             }
             var initialURL = employeeContainer.attr("data-url") || "/api/employee/";
+
+            function formatEmployee(employeeValue, evenOrOddStr) {
+                console.log(employeeValue);
+                var listItemHTML = "<li class='player_row  " + evenOrOddStr + "'>";
+                listItemHTML += "<div class='row'>";
+
+                <!-- Employee Info -->
+                var employeeInfoHTML = "<div class='player_info_column col-md-9'>";
+                employeeInfoHTML += "<div class='row'>";
+
+                <!-- Employee Image -->
+                var employeeImageHTML = "<div class='col-md-2 text-center'>";
+                employeeImageHTML += "<div class='player_image_container'>";
+                employeeImageHTML += "<a href='/team/" + employeeValue.emp_no + "'>";
+                var imageURL = "/media/profile/star_citizen_marine_400x400.jpg";
+                if (employeeValue.image.medium != null) {
+                    imageURL = employeeValue.image.medium;
+                }
+                employeeImageHTML += "<img src='" + imageURL + "' " +
+                    "alt='" + employeeValue.user.first_name + " " + employeeValue.user.last_name + "' " +
+                    "title='" + employeeValue.user.first_name + " " + employeeValue.user.last_name + "' " +
+                    "width='100%' " +
+                    "class='img-rounded'>";
+                employeeImageHTML += "</a>";
+                employeeImageHTML += "</div>";
+                employeeImageHTML += "</div>";
+                employeeInfoHTML += employeeImageHTML;
+                <!-- End Employee Image -->
+
+                <!-- Employee Description -->
+                var employeeDescriptionHTML = "<div class='col-md-10'>";
+                employeeDescriptionHTML += "<div class='player_info'>";
+                employeeDescriptionHTML += "<div class='player_name'>";
+                var countryCode = employeeValue.country.toLowerCase(); // Country codes are required, so this should be safe.
+                employeeDescriptionHTML += "<img src='/static/img/flags/svg/" + countryCode + ".svg' height='20'>";
+                employeeDescriptionHTML += employeeValue.user.first_name + " \"" + employeeValue.callsign + "\" " + employeeValue.user.last_name;
+                employeeDescriptionHTML += "<br/>";
+                employeeDescriptionHTML += "<span class='label label-default preferred_activity_small'>";
+                employeeDescriptionHTML += employeeValue.primary_activity;
+                employeeDescriptionHTML += "</span>";
+                employeeDescriptionHTML += "<span class='label label-default preferred_activity_small'>";
+                employeeDescriptionHTML += employeeValue.secondary_activity;
+                employeeDescriptionHTML += "</span>";
+                employeeDescriptionHTML += "</div>";
+                employeeDescriptionHTML += "<div>";
+                employeeDescriptionHTML += "<div class='player_stat'>";
+                employeeDescriptionHTML += "<span class='player_stat_title'>Status: </span>";
+                employeeDescriptionHTML += "<span>" + employeeValue.type + "</span>"; // TODO
+                employeeDescriptionHTML += "</div>";
+                employeeDescriptionHTML += "<div class='player_stat'>";
+                employeeDescriptionHTML += "<span class='player_stat_title'>Hire Date: </span>";
+                var hireDate = moment(employeeValue.hire_date).format('D MMMM YYYY');
+                employeeDescriptionHTML += "<span>" + hireDate + "</span>";
+                employeeDescriptionHTML += "</div>";
+                employeeDescriptionHTML += "</div>";
+                employeeDescriptionHTML += "</div>";
+                employeeDescriptionHTML += "</div>";
+                employeeInfoHTML += employeeDescriptionHTML;
+                <!-- End Employee Description -->
+
+                employeeInfoHTML += "</div>";
+                employeeInfoHTML += "</div>";
+                listItemHTML += employeeInfoHTML;
+                <!-- End Employee Info -->
+
+                <!-- Employee Actions -->
+                var actionsHTML = "<div class='player_actions_column col-md-3 text-center'>";
+                actionsHTML += "<div>";
+                actionsHTML += "<a href='/team/" + employeeValue.emp_no + "'>";
+                actionsHTML += "<button type='button' class='btn btn-primary btn-lg grey light-text waves-effect waves-light'>View more</button>";
+                actionsHTML += "</a>";
+                actionsHTML += "</div>";
+                actionsHTML += "</div>";
+                listItemHTML += actionsHTML;
+                <!-- End Employee Actions -->
+
+                listItemHTML += "</div>";
+                listItemHTML += "</li>";
+                return listItemHTML;
+            }
+
+            function attachEmployee(employeeValue, evenOrOddStr){
+                var employeeFormattedHtml = formatEmployee(employeeValue, evenOrOddStr);
+                employeeContainer.append(employeeFormattedHtml);
+            }
+
+            function parseEmployees(){
+                if (employeeList.length === 0) {
+                    employeeContainer.text("No employees currently found.");
+                } else {
+                    // Employees exist, parse & display them
+                    $.each(employeeList, function(employeeKey, value){
+                        // Format differently if event or odd.
+                        if (employeeKey % 2 === 0) {
+                            attachEmployee(value, "even");
+                        } else {
+                            attachEmployee(value, "odd");
+                        }
+                    });
+                }
+            }
 
             function fetchEmployees(url){
                 var fetchUrl;
@@ -309,15 +430,30 @@
                     method: "GET",
                     success: function(data){
                         employeeList = data.results;
-                        console.log("employeeList: "+employeeList.length);
+
+                        if (data.next){
+                            nextEmployeesUrl = data.next;
+                        } else {
+                            $("#loadmore").css("display", "none");
+                        }
+                        parseEmployees();
                     },
                     error: function(data){
                         console.log("error");
+                        console.log(data);
                     }
                 });
             }
 
             fetchEmployees();
+
+            $("#loadmore").click(function(event){
+                event.preventDefault();
+                if (nextEmployeesUrl) {
+                    // load more items
+                    fetchEmployees(nextEmployeesUrl);
+                }
+            });
         }
     </script>
 {% endblock %}
