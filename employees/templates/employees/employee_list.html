@@ -192,23 +192,41 @@
     <script>
 
         $(document).ready(function(){
-            loadEmployeeContainer("employee-container");
+            loadEmployeeContainer("employee-container", null);
         });
 
-        function getParameterByName(name, url) {
-            if (!url) {
-                url = window.location.href;
-            }
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
+        <!-- Search Function -->
+        $(document).ready(function(){
+            var typingTimer;
+            var doneInterval = 800; // in ms
+            var searchInput = $("#employee-search");
+            var searchQuery;
 
-        function loadEmployeeContainer(employeeContainerID) {
-            var query = getParameterByName('q');
+            searchInput.keyup(function(event){
+                searchQuery =  $(this).val();
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(doneSearchTyping, doneInterval);
+
+            });
+
+            searchInput.keydown(function(event){
+                clearTimeout(typingTimer);
+            });
+
+            function doneSearchTyping(){
+                if (searchQuery){
+                    // do search
+                    $("#employee-container").empty();
+                    loadEmployeeContainer("employee-container", searchQuery);
+                } else if (searchQuery === "") {
+                    $("#employee-container").empty();
+                    loadEmployeeContainer("employee-container", null);
+                }
+            }
+        });
+        <!-- End Search -->
+
+        function loadEmployeeContainer(employeeContainerID, query) {
             var employeeList = [];
             var nextEmployeesUrl;
 
