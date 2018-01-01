@@ -182,100 +182,6 @@
                 </div>
             {% endif %} <!-- End Join button -->
 
-{#            <div class="row">#}
-{#                <div class="col-md-12">#}
-{#                    <ul class="player_list">#}
-{#                        {% for employee in employee_list %}#}
-{#                            <li class="player_row {{forloop.counter|divisibleby:2|yesno:"even,odd"}}">#}
-{#                                <div class="row">#}
-{#                                    <div class="player_info_column col-md-9">#}
-{#                                        <div class="row">#}
-{#                                            <div class="col-md-2 text-center">#}
-{#                                                <div class="player_image_container">#}
-{#                                                    <a href="{% url 'employees:detail' employee.emp_no %}">#}
-{#                                                        <img src="{% if employee.image.medium.url != None %}{{ employee.image.medium.url }}{% else %}/media/profile/star_citizen_marine_400x400.jpg{% endif %}"#}
-{#                                                             alt="{{ employee.user.first_name }} {{ employee.user.last_name }}"#}
-{#                                                             title="{{ employee.user.first_name }} {{ employee.user.last_name }}"#}
-{#                                                             width="100%"#}
-{#                                                             class="img-rounded">#}
-{#                                                    </a>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{##}
-{#                                            <div class="col-md-10">#}
-{#                                                <div class="player_info">#}
-{#                                                    <div class="player_name">#}
-{#                                                        <img src="{% static 'img/flags/svg/'|addstr:employee.country|lower|addstr:'.svg'  %}" height="20">#}
-{#                                                        {{ employee.user.first_name }} "{{ employee.callsign }}" {{ employee.user.last_name }}#}
-{#                                                        <br/>#}
-{#                                                        <span class="label label-default preferred_activity_small">#}
-{#                                                            {{ activity_dict|get_value:employee.primary_activity }}#}
-{#                                                        </span>#}
-{#                                                        <span class="label label-default preferred_activity_small">#}
-{#                                                            {{ activity_dict|get_value:employee.secondary_activity }}#}
-{#                                                        </span>#}
-{#                                                    </div>#}
-{##}
-{#                                                    <div>#}
-{#                                                        <div class="player_stat">#}
-{#                                                            <span class="player_stat_title">Status:</span>#}
-{#                                                            <span>{{ employee_dict|get_value:employee.type }}</span>#}
-{#                                                        </div>#}
-{##}
-{#                                                        <div class="player_stat">#}
-{#                                                            <span class="player_stat_title">Hire Date:</span>#}
-{#                                                            <span>{{ employee.hire_date|date:"d M Y" }}</span>#}
-{#                                                        </div>#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                    <div class="player_actions_column col-md-3 text-center">#}
-{#                                        <div>#}
-{#                                            <a href="{% url 'employee:detail' employee.emp_no %}">#}
-{#                                                <button type="button" class="btn btn-primary btn-lg grey light-text waves-effect waves-light">View more</button>#}
-{#                                            </a>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{##}
-{#                                </div>#}
-{#                            </li>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-{##}
-{#                {% if no_account %}#}
-{#                    <div class="row">#}
-{#                        <div class="col-md-12 text-center">#}
-{#                            <br/>#}
-{#                            <a href="{% url 'employee:create' %}">#}
-{#                                <button type="button" style="width: 50%" class="btn btn-primary btn-lg yellow dark-text waves-effect waves-light">Join Us!</button>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endif %}#}
-{##}
-{#                {% if is_paginated %}#}
-{#                    <ul class="pagination center-align">#}
-{#                        {% if page_obj.has_previous %}#}
-{#                            <li class="waves-effect">#}
-{#                                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>#}
-{#                            </li>#}
-{#                        {% endif %}#}
-{#                        <li class="waves-effect">#}
-{#                            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>#}
-{#                        </li>#}
-{#                        {% if page_obj.has_next %}#}
-{#                            <li class="waves-effect">#}
-{#                                <a href="?page={{ page_obj.next_page_number }}">Next</a>#}
-{#                            </li>#}
-{#                        {% endif %}#}
-{#                    </ul>#}
-{#                {% endif %}#}
-{#            </div>#}
-
         </div>
     </section>
 
@@ -315,7 +221,6 @@
             var initialURL = employeeContainer.attr("data-url") || "/api/employee/";
 
             function formatEmployee(employeeValue, evenOrOddStr) {
-                console.log(employeeValue);
                 var listItemHTML = "<li class='player_row  " + evenOrOddStr + "'>";
                 listItemHTML += "<div class='row'>";
 
@@ -360,7 +265,7 @@
                 employeeDescriptionHTML += "<div>";
                 employeeDescriptionHTML += "<div class='player_stat'>";
                 employeeDescriptionHTML += "<span class='player_stat_title'>Status: </span>";
-                employeeDescriptionHTML += "<span>" + employeeValue.type + "</span>"; // TODO
+                employeeDescriptionHTML += "<span>" + employeeValue.type + "</span>";
                 employeeDescriptionHTML += "</div>";
                 employeeDescriptionHTML += "<div class='player_stat'>";
                 employeeDescriptionHTML += "<span class='player_stat_title'>Hire Date: </span>";
