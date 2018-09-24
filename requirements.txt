@@ -9,7 +9,7 @@ django-registration==2.3
 django-stdimage==3.0.0
 djangorestframework==3.7.3
 olefile==0.44
-Pillow==4.3.0
+Pillow==5.2.0
 progressbar2==3.34.3
 psycopg2==2.7.3.2
 pycparser==2.18
