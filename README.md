@@ -26,7 +26,7 @@ Django site for [Pur'N'Kleen](https://purnkleen.com).
 after running the previous command. 
 13. To deactivate it, just type `deactivate`.
 14. And to activate it again: `workon purnkleen`.
-15. While being in your python3 virtual envirnoment, if you type `python` you activate python 3! Moreover, you can use 
+15. While being in your python3 virtual environment, if you type `python` you activate python 3! Moreover, you can use 
 `pip` to call `pip3` and install python3 packages. For example, you can install Django 1.7 using 
 `pip install Django==1.7`. 
 
