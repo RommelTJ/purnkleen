@@ -1,6 +1,6 @@
 # Pur'N'Kleen
 
-Version: 1.2.1 - 23 September 2018.
+Version: 1.2.2 - 24 September 2018.
 
 ## Description
 
