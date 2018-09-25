@@ -32,6 +32,20 @@ after running the previous command.
 
 Now, you’re ready to code!
 
+## PostgreSQL Setup
+
+1. Download from here: https://www.postgresql.org/download/macosx/
+2. Make sure the port matches what is in your `config/settings_local.ini` folder.
+3. Click initialize.
+4. Install pgAdmin: https://www.pgadmin.org/
+5. Create a new server using the settings in the `config/settings_local.ini`.
+6. Set up the database using the default `postgres` user.
+7. Create the `pnk_admin` user with full access.
+8. Create `purnkleen` database.
+9. `python manage.py migrate`
+
+That's it. Run the server! (http://127.0.0.1:52046/browser/#)
+
 ## Contributing
 
 If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
