@@ -7,7 +7,7 @@ django-countries==4.4
 django-crispy-forms==1.7.0
 django-registration==2.3
 django-stdimage==3.0.0
-djangorestframework==3.7.3
+djangorestframework==3.11.2
 olefile==0.44
 Pillow==8.1.1
 progressbar2==3.34.3
